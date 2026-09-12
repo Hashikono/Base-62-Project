@@ -1,5 +1,6 @@
 //---------------------- TINKERCAD ----------------------
 //Note: All "Review Anchors" must be converted from tinkercad/irl
+//NOTE - REMEMBER TO MAKE NOTES IF YOU EDITTED ANYTHING NOT IN LOOP()
 
 //REVIEW - LCD Imports/init
 #include <Adafruit_LiquidCrystal.h>
