@@ -1,6 +1,7 @@
 //---------------------- IN REAL LIFE ----------------------
+//Note: All "Review Anchors" must be converted from tinkercad/irl
 
-//LCD Imports/init
+//REVIEW - LCD Imports/init
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd1(0x27, 16, 2); //Top/Left Display
@@ -27,7 +28,7 @@ void setup()
     myServo.attach(serv);
     pinMode(piezo, OUTPUT);
 
-    // initialization function
+    //REVIEW - initialization function
     lcd1.init();
     lcd2.init();
     lcd1.backlight();
@@ -40,7 +41,6 @@ void loop()
     //starting placement
     lcd1.setCursor(0, 0);
     lcd2.setCursor(0, 0);
-
 
 
     //printing
