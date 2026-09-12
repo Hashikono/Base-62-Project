@@ -19,6 +19,10 @@ const int button1 = 2; const int button2 = 3; const int button3 = 4;
 //derive all characters through this list
 const String book = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+//FIXME - Added some more variables below
+int inputBase = 2;
+int outputBase = 10;
+
 
 void setup() 
 {
@@ -47,5 +51,16 @@ void loop()
     lcd.print("hello world");
     
 }
+
+
+//TODO - Literally a list
+// * Solder the A0 (I believe) memory adddress together
+// * match the memory address of the coded LCD to the soldered LCD
+// * make the degree-servo motor system like in arduino's examples
+// * set the potentiometers parameters (initialization) to detect degrees
+// * Get the potentiometers to scroll through values when they are turned respectively
+//      - input 1 -> 0-9 ; input 2 -> A-Z ; input 3 -> a-z
+
+
 
 
