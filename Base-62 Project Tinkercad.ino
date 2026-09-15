@@ -20,9 +20,16 @@ const int button1 = 2; const int button2 = 3; const int button3 = 4;
 const String book = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 //FIXME - Added some more variables below
+bool io = true;
+
 int inputBase = 2;
 int outputBase = 10;
 
+int currentDegree1;
+int currentDegree2;
+int currentDegree3;
+
+//STUB - VIDESH START CODING THE FUNCTION HERE
 
 void setup() 
 {
@@ -35,20 +42,31 @@ void setup()
     //REVIEW - initialization function
     lcd1.begin(16, 2);
     lcd2.begin(16, 2);
-    lcd1.setBacklight(1);
-    lcd2.setBacklight(1);
+    lcd1.setBacklight(0);
+    lcd2.setBacklight(0);
 
+    //FIXME - changed the stuff below
+    //template("****************")
+
+    /Initial display
+    lcd1.setCursor(0, 0);
+    lcd1.print("    Press !     ");
+    lcd1.setCursor(0, 1);
+    lcd1.print("    to start    ");
+
+    lcd2.setCursor(0, 0);
+    lcd2.print("     ZzZzZ      ");
+    lcd2.setCursor(0, 1);
+    lcd2.print("   ( - . - )    ");
 }
 
 void loop()
 {
+    //NOTE - Copy-paste everything in this loop() to the IRL loop()
     //starting placement
     lcd1.setCursor(0, 0);
     lcd2.setCursor(0, 0);
 
-
-    //printing
-    lcd.print("hello world");
     
 }
 
@@ -60,6 +78,11 @@ void loop()
 // * set the potentiometers parameters (initialization) to detect degrees
 // * Get the potentiometers to scroll through values when they are turned respectively
 //      - input 1 -> 0-9 ; input 2 -> A-Z ; input 3 -> a-z
+// * Make a function tht handles displaying on LCD
+//      - Use it to replace the cat "initial display" in setup()
+// * Add the Tinkercad design/link to github README etc.
+//      - Maybe also include pictures of different sections???
+
 
 
 
