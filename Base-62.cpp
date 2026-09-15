@@ -21,7 +21,27 @@
 
 */
 
+/* 
+BULLETIN BOARD - What got built so far by Videsh.
+- conversion()  : converts a string from one base to another (custom charset supported)
+- calculation() : does + - * / on two strings in the same base, returns a string
+- Helpers added (not classes, just free functions):
+    - (Will Update as I go)
+- Design Notes:
+    - (Again, will update as I go)
+*/
 
+#include <iostream>
+#include <string>
+using namespace std;
 
+//derive chars thru list
+const string book = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+//char --> digit val within given charset, or-1 if char not found
+int valueOf(char c, const string &charset) {
+    for (int i = 0; i < (int)charset.size(); i++)
+        if (charset[i] == c) return i;
+    return -1;
+}
 
