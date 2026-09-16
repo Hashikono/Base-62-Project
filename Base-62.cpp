@@ -45,3 +45,34 @@ int valueOf(char c, const string &charset) {
     return -1;
 }
 
+// string (in 'base') --> decimal. Sets of=false on any invalid input.
+long long toDecimal(const string &input, int base, const string &charset, bool &ok) {
+    ok = true;
+
+    //base limit check: has to fiit inside charset and be positional
+    if (base < 2 || base > (int)charset.size()) {
+        ok = false;
+        return 0;
+    }
+
+    string s = input;
+    bool negative = false;
+    if (!s.empty() && s[0] == '-') {
+        negative = true;
+        s = s.substr(1);
+    }
+    if (s.empty()) { // "" or just "-" is invalid
+        ok = false;
+        return 0;
+    }
+
+    long long value = 0;
+    for (int i = 0; i < (int)s.size(); i++) {
+        int digit = valueOf(s[i], charset);
+        if (digit < 0 || digit >= base) { //out of range fir this base
+            ok = false;
+            return 0;
+        }
+    }
+    return negative ? -value : value;
+}
