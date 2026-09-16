@@ -32,6 +32,13 @@ BULLETIN BOARD - What got built so far by Videsh.
     - valueOf()     : char --> its didigt value in the charset (-1 if not in charset)
 - Design Notes:
     - (Again, will update as I go)
+    - Everything routes through decimal internally, then converts back.
+    - Base limit is detected in toDecimal(): a digit's value must be < base, else invalid.
+        (e.g. base 10 rejects 'A', base 16 rejects 'G'.)
+    - Invalid inputs return the string "ERROR" (bad char, bad base, empty, /0).
+    - Negatives are supported (a leader '-'), so subtraction can go below 0
+    - Bases 2 to 62 are accepted (base 1 / unary isn't positional, so it's rejected).
+    - long long is used here for headroom; on ino it becomes long (32-bit)
 */
 
 #include <iostream>
@@ -152,7 +159,7 @@ int main()
 
     cout << "\n---- conversion() with custom charset (0-9 --> A-J) ----\n";
     const string custom = "ABCDEFGHIJ"; //b10 alphabet remapped
-    check("B... custom"), conversion("BA", 10, 10, custom), "BA"); // "10" in custom charset
+    check("B... custom", conversion("BA", 10, 10, custom), "BA"); // "10" in custom charset
 
     cout << "\n---- calculation() ----\n";
     check("F + 1 (b16)", calculation("F", "1", '+', 16), "10");
