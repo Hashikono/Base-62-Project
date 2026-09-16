@@ -107,3 +107,25 @@ string conversion(const string &input, int inputBase, int outputBase, const stri
     if (outputBase <2 || outputBase > (int)charset.size()) return "ERROR";
     return fromDecimal(dec, outputBase, charset);
 }
+
+//calculation(): + - * / on two strings that share the same base.
+//Returns result as string in same base
+string calculation(const string &a, const string &b, char op, int base, const string &charset = book) {
+    bool okA, okB;
+    long long x = toDecimal(a, base, charset, okA);
+    long long y = toDecimal(b, base, charset, okB);
+    if (!okA || !okB) return "ERROR";
+
+    long long result;
+    switch (op) {
+        case '+': result = x + y; break;
+        case '-': result = x - y; break;
+        case '*': result = x * y; break;
+        case '/': result = x / y; break;
+            if (y == 0) return "ERROR"; //no div by 0
+            result = x / y; //int div
+            break;
+        default: return "ERROR"; //unknown op
+    }
+    return fromDecimal(result, base, charset);
+}
