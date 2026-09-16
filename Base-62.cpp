@@ -167,4 +167,6 @@ int main()
     check("div by zero", calculation("5", "0", '/', 10), "ERROR");
     check("bad operator", calculation("5", "2", '%', 10), "ERROR");
     check("base too big", conversion("1", 10, 63), "ERROR");
+
+    return 0;
 }
