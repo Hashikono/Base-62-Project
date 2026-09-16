@@ -129,3 +129,42 @@ string calculation(const string &a, const string &b, char op, int base, const st
     }
     return fromDecimal(result, base, charset);
 }
+
+// SECTION - IGNORE WHEN PORTING || PROTOTYPE HARNESS
+void check(const string &label, const string &got, const string &expected) {
+    cout << (got == expected ? "[ OK ]" : "[FAIL] ")
+         << label << " = " << got
+         << " (expected: " << expected << ")\n";
+}
+
+int main()
+{
+    cout << "=== Conversion Tests ===\n";
+    check("9 (b10 --> b10)", conversion("9", 10, 10), "9");
+    check("9 (b10 --> b16)", conversion("9", 10, 16), "9");
+    check("10 (b10 --> b16)", conversion("10", 10, 16), "A"); //base lim: 9 --> A
+    check("F (b16 --> b10)", conversion("F", 16, 10), "15");
+    check("255 (b10 --> b16)", conversion("255", 10, 16), "FF");
+    check("1111111 (b2 --> b10)", conversion("1111111", 2, 10), "255");
+    check("Z (b36 --> b10)", conversion("Z", 36, 10), "35");
+    check("z (b62 --> b10)", conversion("z", 62, 10), "61");
+    check("100 (b62 --> b10)", conversion("100", 62, 10), "3844"); // 62 * 62
+
+    cout << "\n---- conversion() with custom charset (0-9 --> A-J) ----\n";
+    const string custom = "ABCDEFGHIJ"; //b10 alphabet remapped
+    check("B... custom"), conversion("BA", 10, 10, custom), "BA"); // "10" in custom charset
+
+    cout << "\n---- calculation() ----\n";
+    check("F + 1 (b16)", calculation("F", "1", '+', 16), "10");
+    check("10 - 1 (b16)", calculation("10", "1", '-', 16), "F");
+    check("7 * 8 (b10)", calculation("7", "8", '*', 10), "56");
+    check("100 / 7 (b10)", calculation("100", "7", '/', 10), "14");
+    check("1 - 5 (b10)", calculation("1", "5", '-', 10), "-4");
+
+    cout <<"\n---- invalid input detection ----\n";
+    check("G is invalid b16", conversion("G", 16, 10), "ERROR");
+    check("A is invalid b10", conversion("A", 10, 16), "ERROR");
+    check("div by zero", calculation("5", "0", '/', 10), "ERROR");
+    check("bad operator", calculation("5", "2", '%', 10), "ERROR");
+    check("base too big", conversion("1", 10, 63), "ERROR");
+}
