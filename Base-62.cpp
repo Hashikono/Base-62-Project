@@ -27,6 +27,8 @@ BULLETIN BOARD - What got built so far by Videsh.
 - calculation() : does + - * / on two strings in the same base, returns a string
 - Helpers added (not classes, just free functions):
     - (Will Update as I go)
+    - toDecimal()   : string (any base) --> long long, with valiation via "ok" bool ref
+    - fromDecimal() : long long --> string in any base
 - Design Notes:
     - (Again, will update as I go)
 */
@@ -75,4 +77,22 @@ long long toDecimal(const string &input, int base, const string &charset, bool &
         }
     }
     return negative ? -value : value;
+}
+
+//decimal --> string (in 'base')
+string fromDecimal(long long value, int base, const string &charset) {
+    if (value == 0) return string(1, charset[0]);
+
+    bool negative = value < 0;
+
+    bool negative = value <0;
+    unsigned long long v = negative ? (unsigned long long)(-value) : (unsigned long long)value;
+
+    string out = "";
+    while (v > 0) {
+        out = charset[v % base] + out;
+        v /= base;
+    }
+    if (negative) out = "-" + out;
+    return out;
 }
