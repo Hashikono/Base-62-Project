@@ -29,6 +29,7 @@ BULLETIN BOARD - What got built so far by Videsh.
     - (Will Update as I go)
     - toDecimal()   : string (any base) --> long long, with valiation via "ok" bool ref
     - fromDecimal() : long long --> string in any base
+    - valueOf()     : char --> its didigt value in the charset (-1 if not in charset)
 - Design Notes:
     - (Again, will update as I go)
 */
@@ -95,4 +96,14 @@ string fromDecimal(long long value, int base, const string &charset) {
     }
     if (negative) out = "-" + out;
     return out;
+}
+
+//conversion(): move a number string from inputBase to outputBase
+//charset is optional; defaults to 'book' (0-9, A-Z, a-z)
+string conversion(const string &input, int inputBase, int outputBase, const string &charset = book) {
+    bool ok;
+    long long dec = toDecimal(input, inputBase, charset, ok);
+    if (!ok) return "ERROR";
+    if (outputBase <2 || outputBase > (int)charset.size()) return "ERROR";
+    return fromDecimal(dec, outputBase, charset);
 }
