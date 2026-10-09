@@ -281,9 +281,20 @@ bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, ui
         case '-': result = dec1P - dec2P; break;
         case '*': result = dec1P * dec2P; break;
         case '/': 
-            //dividing by 0 case
             if (dec2P == 0) return false;
-            result = dec1P / dec2P;
+            //SECTION - Truncating:
+            //result = dec1P / dec2P;
+            //!SECTION
+            
+
+            //SECTION - Rounding:
+            if ((dec1P >= 0) == (dec2P >= 0)){
+                result = (dec1P + dec2P/2) / dec2P;
+            } else {
+                result = (dec1P - dec2P/2) / dec2P;
+            }
+            //!SECTION
+
             break;
         default: return false; //if no operator present (technically shouldn't happen unless the code screw up)
     }
@@ -310,7 +321,7 @@ bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, ui
             decimalResult[position++] = '-';
         }
         while (num > 0){
-            decimalResult[position++] = temp[--num];
+            decimalResult[position++] = temp[--num]; //prefix num to avoid indexing errors
         }
         decimalResult[position] = '\0'; //ender [I should play minecraft soon]
     }
