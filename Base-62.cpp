@@ -41,6 +41,8 @@ BULLETIN BOARD - What got built so far by Videsh.
     - long long is used here for headroom; on ino it becomes long (32-bit)
 */
 
+//CLI command: cl "%USERPROFILE%\Documents\Code - main\GitHub\Base-62-Project\Base-62.cpp"
+
 #include <iostream>
 #include <string>
 using namespace std;

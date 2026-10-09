@@ -28,11 +28,42 @@ using namespace std;
 //derive chars thru list
 const string book = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+string toBinary(string c, string tempBook){
+    //literally just its index...
+    int ind = tempBook.find(c);
+    //FIXME -arduino- int ind = tempBook.indexOf(c);
+
+    //establish bit length of binary: 2,4,6,8 max
+    string bitLength = "";
+    for (int bl = 1; bl < tempBook.size(); bl*2){
+        bitLength = bitLength + "0";
+    }
+
+    //set bitlength accordingly
+}
+
+
+//assume you are inputted a valid string (string) and the base to convert to (int)
+string conversion(string x, int base){
+    string converted = "";
+    //setting base to the book
+    const string currentBook = book.substr(0,base);
+    //FIXME -arduino- const string currentBook = book.substring(0,base);
+
+    //convert to binary (easiest)
+    for (int a = 0; a < x.size(); a++){
+        for (int b = 0; b < currentBook.size(); b++){
+            
+        }
+    }
+
+    return converted;
+}
 
 
 int main()
 {
-    
+    cout << toBinary("7", "012345678");
 
     return 0;
 }
