@@ -18,42 +18,96 @@
 - name the second function: calculation()
 - if you make anything else after this please just list them in a bulletin
     - (like turn this section into a bulletin board)
+- one module on the LCD is always reserved for system
+- convert all strings into a list of char to reduce system usage (albeit it does sound stupid)
+- program works for possible valeus that you can input...
 
+- when the user chanegs bases for inputs, clear their selection so only valid inputs can persist
 */
 
-#include <iostream>
-#include <string>
+//arduino compatibility
+#include <string.h>
+#include <stdint.h>
 using namespace std;
 
+//setting definitions
+#define MAX_BOOK_LENGTH 62
+#define MAX_INPUT_LENGTH 16 //limit to 16 in the LCD
+#define MAX_BITS 256 //binary buffer/temp storagfe
+#define UNARY_SYM '1'
+
 //derive chars thru list
-const string book = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const char BOOK[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const uint8_t BOOK_LENGTH = 62; //gotta love unsigned integers -_-
 
-//FIXME - so much to fix when porting to arduino...
-string toBinary(char c, const string& tempBook){
-    //literally just its index...
-    int ind = tempBook.find(c);
-    //FIXME -arduino- int ind = tempBook.indexOf(c);
-
-    //establish bit length of binary: 2,4,6,8 max
-    size_t bitLength = 0;
-    size_t bl = 1;
-    while (bl < tempBook.size()){
-        bl = bl * 2;
-        bitLength++;
+//finding c index in book
+int16_t bookIndex(char c, uint8_t baseLen){
+    for(uint8_t i = 0; i < baseLen; i++){
+        if (BOOK[i] == c) {
+            return (int16_t)i;
+        }
     }
-
-    //set bitlength accordingly
-    string bits(bitLength, '0');
-    for (size_t iii = 0; iii < bitLength; iii++){
-        //infill right & shifting :/
-        size_t position = bitLength - (1+iii); 
-        bits[position] = char('0'+ (ind & 1));
-        ind >>= 1;
-    }
-
-    return bits;
+    return -1; //error
 }
 
+
+//set bitlength accordingly
+uint8_t bitLength(uint8_t bookSize){
+    uint8_t bits = 0;
+    uint16_t commonCap = 1;
+    while (commonCap < bookSize){
+        commonCap <<= 1; //shifting left
+        bits++;
+    }
+    return bits++;
+}
+
+//SECTION - special cases (in a sense):
+//conversions for unary
+uint16_t fromUnary(const char* s, char sym = UNARY_SYM){
+    uint16_t count = 0;
+    for (const char* p = s; *p; p++){
+        //iterating through a memory address instead of addressing a string
+        if(*p == sym) count ++;
+    }
+    return count;
+}
+
+uint8_t toUnary(uint16_t val, char* output, uint8_t outputSize){
+    if (val + 1 > outputSize){
+        return 0; //though this should rarely happen...
+    }
+    for (uint16_t i = 0; i < val; i++){
+        output[i] = UNARY_SYM;
+    }
+    output[val] = '\0'; //sneaky-strings againnn
+    return val;
+}
+
+
+//conversion to binary -> making all o fthsi arduino compatible is killing me
+uint8_t toBinary(char c, uint8_t base, char* outputt, uint8_t outputSize){
+    //literally just its index...
+    int16_t ind = bookIndex(c, base);
+    if (ind < 0) {
+        return 0; //because stupid unary exists
+    }
+
+    //bit length setting
+    uint8_t bits = bitLength(base);
+    if (bits +1> outputSize){
+        return 0;
+    }
+
+    for (uint8_t i = 0; i < bits i++){
+        outputt[bits-1-i] = char('0' + (ind & 1)); //AND gates...used only in minecraft
+        ind >>= 1; //shifting binary right
+    }
+
+    outputt[bits] = '\0'; //sneaky way to make a string
+    return bits;
+}
+//!SECTION
 
 //assume you are inputted a valid string (string), the current base, and the base to convert to (int)
 string conversion(string x, int fromBase, int toBase){
@@ -61,8 +115,7 @@ string conversion(string x, int fromBase, int toBase){
     //setting bases to books
     const string fromBook = book.substr(0, fromBase);
     const string toBook = book.substr(0, toBase);
-    //FIXME -arduino- const string fromBook = book.substring(0, fromBase);
-    //FIXME -arduino- const string toBook = book.substring(0, toBase);
+    /
 
 
     //convert to binary (easiest)
