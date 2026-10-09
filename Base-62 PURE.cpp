@@ -26,6 +26,7 @@
 */
 
 //arduino compatibility
+#include <iostream> //temporary
 #include <string.h>
 #include <stdint.h>
 using namespace std;
@@ -155,6 +156,7 @@ bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, u
             output[1] = '\0'; //memory end
             return true;
         }
+
         //temp storage
         char buffer[MAX_BITS];
         uint16_t num = 0;
@@ -162,6 +164,17 @@ bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, u
             buffer[num++] = (char)(conv & toBase); //similar val
             conv /= toBase; // constant division
         }
+        
+        //corpulent output
+        if (num + 1 > outputSize){
+            return false;
+        }
+        
+        //filling in digits for arbitrary number conversion
+        for (uint16_t i = 0; i < num; i++){
+            output[i] = BOOK[(uint8_t) buffer[num - 1 - i]];
+        }
+
         output[num] = '\0';
         return true;
     }
