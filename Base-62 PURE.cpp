@@ -55,29 +55,60 @@ string toBinary(char c, const string& tempBook){
 }
 
 
-//assume you are inputted a valid string (string) and the base to convert to (int)
-string conversion(string x, int base){
+//assume you are inputted a valid string (string), the current base, and the base to convert to (int)
+string conversion(string x, int fromBase, int toBase){
     string converted = "";
-    //setting base to the book
-    const string currentBook = book.substr(0,base);
-    //FIXME -arduino- const string currentBook = book.substring(0,base);
+    //setting bases to books
+    const string fromBook = book.substr(0, fromBase);
+    const string toBook = book.substr(0, toBase);
+    //FIXME -arduino- const string fromBook = book.substring(0, fromBase);
+    //FIXME -arduino- const string toBook = book.substring(0, toBase);
+
 
     //convert to binary (easiest)
     string binaryTemp = "";
     for (size_t a = 0; a < x.size(); a++){
         char tempC = x[a];
-        binaryTemp += toBinary(tempC, currentBook);
+        binaryTemp += toBinary(tempC, fromBook);
     }
 
-    return binaryTemp;
-    //return converted;
+    //convert to the desired base:
+    //binary length
+    int convBinLen = toBinary(toBook[toBook.size()-1], toBook).size();
+    int remainder = binaryTemp.size() % convBinLen;
+    
+    //add empty 0s
+    if (remainder != 0){
+        size_t extra = convBinLen - remainder;
+        binaryTemp = string(extra, '0') + binaryTemp;
+    }
+
+    //actual conversion
+    for (int y = 0; y < binaryTemp.size()/convBinLen; y++){
+        size_t start = y*convBinLen;
+        string partition = binaryTemp.substr(start, convBinLen);
+        //FIXME -arduino- string partition = binaryTemp.substring(start, convBinLen);
+
+        //partition conversion - yes I stole that term from mint cinnamon
+        size_t val = 0;
+        for (size_t j = 0; j < partition.size(); j++){
+            //gotta love c++ ascii conversions
+            val = val * 2 + (partition[j] - '0');
+        }
+
+        converted += toBook[val];
+    }
+
+
+    //return binaryTemp;
+    return converted;
 }
 
 
 int main()
 {
     cout << "hello world: " << toBinary('7', "0123456789ABCDEF");
-    cout << "hello world: " << conversion("0572", 8);
+    cout << "hello world: " << conversion("0572", 8, 2);
 
     return 0;
 }
