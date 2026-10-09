@@ -28,18 +28,30 @@ using namespace std;
 //derive chars thru list
 const string book = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-string toBinary(string c, string tempBook){
+//FIXME - so much to fix when porting to arduino...
+string toBinary(char c, const string& tempBook){
     //literally just its index...
     int ind = tempBook.find(c);
     //FIXME -arduino- int ind = tempBook.indexOf(c);
 
     //establish bit length of binary: 2,4,6,8 max
-    string bitLength = "";
-    for (int bl = 1; bl < tempBook.size(); bl*2){
-        bitLength = bitLength + "0";
+    size_t bitLength = 0;
+    size_t bl = 1;
+    while (bl < tempBook.size()){
+        bl = bl * 2;
+        bitLength++;
     }
 
     //set bitlength accordingly
+    string bits(bitLength, '0');
+    for (size_t iii = 0; iii < bitLength; iii++){
+        //infill right & shifting :/
+        size_t position = bitLength - (1+iii); 
+        bits[position] = char('0'+ (ind & 1));
+        ind >>= 1;
+    }
+
+    return bits;
 }
 
 
@@ -51,19 +63,21 @@ string conversion(string x, int base){
     //FIXME -arduino- const string currentBook = book.substring(0,base);
 
     //convert to binary (easiest)
-    for (int a = 0; a < x.size(); a++){
-        for (int b = 0; b < currentBook.size(); b++){
-            
-        }
+    string binaryTemp = "";
+    for (size_t a = 0; a < x.size(); a++){
+        char tempC = x[a];
+        binaryTemp += toBinary(tempC, currentBook);
     }
 
-    return converted;
+    return binaryTemp;
+    //return converted;
 }
 
 
 int main()
 {
-    cout << toBinary("7", "012345678");
+    cout << "hello world: " << toBinary('7', "0123456789ABCDEF");
+    cout << "hello world: " << conversion("0572", 8);
 
     return 0;
 }

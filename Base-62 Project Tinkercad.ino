@@ -29,7 +29,7 @@ int currentDegree1;
 int currentDegree2;
 int currentDegree3;
 
-//STUB - VIDESH START CODING THE FUNCTION HERE
+//STUB - input conversion code here
 
 void setup() 
 {
