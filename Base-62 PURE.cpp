@@ -81,7 +81,7 @@ uint8_t toUnary(uint16_t val, char* output, uint8_t outputSize){
         output[i] = UNARY_SYM;
     }
     output[val] = '\0'; //sneaky-strings againnn
-    return val;
+    return (uint8_t)val;
 }
 
 
@@ -99,7 +99,7 @@ uint8_t toBinary(char c, uint8_t base, char* outputt, uint8_t outputSize){
         return 0;
     }
 
-    for (uint8_t i = 0; i < bits i++){
+    for (uint8_t i = 0; i < bits; i++){
         outputt[bits-1-i] = char('0' + (ind & 1)); //AND gates...used only in minecraft
         ind >>= 1; //shifting binary right
     }
@@ -108,60 +108,94 @@ uint8_t toBinary(char c, uint8_t base, char* outputt, uint8_t outputSize){
     return bits;
 }
 //!SECTION
-
-//assume you are inputted a valid string (string), the current base, and the base to convert to (int)
-string conversion(string x, int fromBase, int toBase){
-    string converted = "";
-    //setting bases to books
-    const string fromBook = book.substr(0, fromBase);
-    const string toBook = book.substr(0, toBase);
-    /
-
-
-    //convert to binary (easiest)
-    string binaryTemp = "";
-    for (size_t a = 0; a < x.size(); a++){
-        char tempC = x[a];
-        binaryTemp += toBinary(tempC, fromBook);
+//conversion part 1 through constant division
+bool digitsToBaseStr(char* digits, uint16_t digitsLength, uint8_t fromBase, uint8_t toBase, char* output, uint16_t outputSize){
+    //get rid of leading 0s - somehting forgotten in the base 2^x system
+    uint16_t startingVal = 0;
+    while (startingVal < digitsLength && digits[startingVal] == 0){
+        startingVal++;
     }
-
-    //convert to the desired base:
-    //binary length
-    int convBinLen = toBinary(toBook[toBook.size()-1], toBook).size();
-    int remainder = binaryTemp.size() % convBinLen;
-    
-    //add empty 0s
-    if (remainder != 0){
-        size_t extra = convBinLen - remainder;
-        binaryTemp = string(extra, '0') + binaryTemp;
-    }
-
-    //actual conversion
-    for (int y = 0; y < binaryTemp.size()/convBinLen; y++){
-        size_t start = y*convBinLen;
-        string partition = binaryTemp.substr(start, convBinLen);
-        //FIXME -arduino- string partition = binaryTemp.substring(start, convBinLen);
-
-        //partition conversion - yes I stole that term from mint cinnamon
-        size_t val = 0;
-        for (size_t j = 0; j < partition.size(); j++){
-            //gotta love c++ ascii conversions
-            val = val * 2 + (partition[j] - '0');
+    //rids corresponding 0s
+    if (startingVal == digitsLength){
+        //check
+        if (outputSize < 2){
+            return false;
         }
+        output[0] = BOOK[0];
+        output[1] = '\0'; //ender
+        return true;
+    }
+}
 
-        converted += toBook[val];
+
+//conversion validation / part 2
+bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, uint16_t outputSize){
+    //simpe tests
+    if (!x || !*x) return false; //address
+    if (fromBase < 1 || toBase < 1) return false; //emptiness
+    if (fromBase > BOOK_LENGTH || toBase > BOOK_LENGTH) return false; //corpulent
+    //maybe add a valid inut section (probably unecessary though)
+
+    //unary > unary
+    if (fromBase == 1 && toBase == 1){
+        uint16_t conv = fromUnary(x);
+        return toUnary(conv, output, ((uint8_t)outputSize) > 0 || conv == 0);
+    }
+    
+    //unary > arbitrary
+    if (fromBase == 1){
+        uint16_t conv = fromUnary(x);
+        //conversion @ 0
+        if (conv == 0){
+            //check
+            if (outputSize < 2){
+                return false;
+            }
+            output[0] = BOOK[0];
+            output[1] = '\0'; //memory end
+            return true;
+        }
+        //temp storage
+        char buffer[MAX_BITS];
+        uint16_t num = 0;
+        while (conv > 0) {
+            buffer[num++] = (char)(conv & toBase); //similar val
+            conv /= toBase; // constant division
+        }
+        output[num] = '\0';
+        return true;
     }
 
+    //arbitrary > unary
+    if (toBase == 1){
+        uint16_t value = 0;
+        //iterating digits/1s...
+        for (const char* pos = x; *pos; pos++){
+            int16_t dig = bookIndex(*pos, fromBase);
+            value *= fromBase;
+            value += dig;
+        }
+    }
 
-    //return binaryTemp;
-    return converted;
+    //arbitrary > arbitrary
+    char digits[MAX_INPUT_LENGTH];
+    uint16_t dgLen = 0;
+    for (const char* p = x; *p; p++) {
+        //max check
+        if (dgLen >= MAX_INPUT_LENGTH){
+            return false;
+        }
+        digits[dgLen++] = (char)bookIndex(*p, fromBase); //sequential digit conversion
+    }
+    return digitsToBaseStr(digits, dgLen, fromBase, toBase, output, outputSize);
+
 }
 
 
 int main()
 {
-    cout << "hello world: " << toBinary('7', "0123456789ABCDEF");
-    cout << "hello world: " << conversion("0572", 8, 2);
+    //std::cout << "hello world: " << toBinary('7', "0123456789ABCDEF");
+    //std::cout << "hello world: " << conversion("0572", 8, 2);
 
     return 0;
 }
