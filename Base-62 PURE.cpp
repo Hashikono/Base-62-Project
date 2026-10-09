@@ -266,7 +266,7 @@ bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, ui
     if(!conversion(num1, fromBase1, 10, dec1, sizeof(dec1))){
         return false;
     }
-    if(!conversion(num2, fromBase2, 10, dec2, sizeof(dec2));){
+    if(!conversion(num2, fromBase2, 10, dec2, sizeof(dec2))){
         return false;
     }
 
@@ -275,9 +275,58 @@ bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, ui
 
     //actual calculations
     long result = 0;
+    //cases
+    switch(oper[0]) {
+        case '+': result = dec1P + dec2P; break;
+        case '-': result = dec1P - dec2P; break;
+        case '*': result = dec1P * dec2P; break;
+        case '/': 
+            //dividing by 0 case
+            if (dec2P == 0) return false;
+            result = dec1P / dec2P;
+            break;
+        default: return false; //if no operator present (technically shouldn't happen unless the code screw up)
+    }
     
-    
+    //formatting/decimal conversion
+    char decimalResult[32];
+    {
+        char temp[24];
+        uint16_t num = 0;
+        bool negativity = (result < 0);
+        unsigned long unum = negativity ? (unsigned long)(-result) : (unsigned long) (result);
 
+        //unum establishment
+        if (unum == 0){
+            temp[num++] = '0';
+        }
+        while (unum > 0){
+            temp[num++] = char('0' + (unum % 10)); unum/=10; //truncation
+        }
+
+        //position sector
+        uint16_t position = 0;
+        if (negativity){
+            decimalResult[position++] = '-';
+        }
+        while (num > 0){
+            decimalResult[position++] = temp[--num];
+        }
+        decimalResult[position] = '\0'; //ender [I should play minecraft soon]
+    }
+
+    //revert conversion
+    if (decimalResult[0] == '-'){
+        if (outputSize < 2){ //potential negative 0
+            return false;
+        }
+        output[0] = '-';
+        if (!conversion(decimalResult + 1, 10, toBase, output +1, outputSize - 1)){
+            return false;
+        }
+        return true;
+    }
+    return conversion (decimalResult, 10, toBase, output, outputSize);
 }
 
 int main()
@@ -290,7 +339,15 @@ int main()
 
     //test 2
     conversion("0572", 8, 50, out, sizeof(out));
-    cout << "conversion 2: " << out;
+    cout << "conversion 2: " << out << endl;
+
+    //test 3
+    calculation("/", "10", "3", 10, 10, 10, out, sizeof(out));
+    cout << "conversion 3: " << out << endl;
+
+    //test 4
+    calculation("*", "101", "FF", 2, 16, 10, out, sizeof(out));
+    cout << "conversion 4: " << out << endl;
 
     return 0;
 }
