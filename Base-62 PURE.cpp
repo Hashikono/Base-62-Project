@@ -126,6 +126,49 @@ bool digitsToBaseStr(char* digits, uint16_t digitsLength, uint8_t fromBase, uint
         output[1] = '\0'; //ender
         return true;
     }
+
+    //builds resulting num in buffer
+    char temp[MAX_BITS];
+    uint16_t tempLength = 0;
+    uint16_t length = digitsLength - startingVal;
+    memmove(digits, digits + startingVal, length);
+
+    while (length > 0){
+        uint16_t carry = 0;
+        uint16_t convlength = 0;
+        for (uint16_t i = 0; i < length; i++){
+            //current number calculated from base and builder carries value
+            uint16_t current = carry * fromBase + (uint8_t)digits[i];
+            uint16_t conv = current/toBase;
+            carry = current % toBase;
+
+            //conv repetition
+            if (convlength > 0 || conv != 0){
+                digits[convlength++] = (char)conv;
+            }
+        }
+
+        //invalidation check
+        if (tempLength >= sizeof(temp)){
+            return  false;
+        }
+
+        //tempoart filled with carry value
+        temp[tempLength++] = BOOK[carry];
+        length = convlength;
+    }
+
+    //another corpulent checker
+    if (tempLength + 1 > outputSize){
+        return false;
+    }
+
+    //output handling
+    for (uint16_t i = 0; i < tempLength; i++){
+        output[i] = temp[tempLength - 1 - i];
+    }
+    output[tempLength] = '\0'; //ender
+    return true;
 }
 
 
@@ -207,8 +250,9 @@ bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, u
 
 int main()
 {
-    //std::cout << "hello world: " << toBinary('7', "0123456789ABCDEF");
-    //std::cout << "hello world: " << conversion("0572", 8, 2);
+    char out[64];
+    cout << "conversion 1: " << conversion("273", 10, 2, out, sizeof(out));
+    cout << "conversion 2: " << conversion("0572", 8, 50, out, sizeof(out));
 
     return 0;
 }
