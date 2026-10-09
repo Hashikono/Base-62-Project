@@ -172,7 +172,7 @@ bool digitsToBaseStr(char* digits, uint16_t digitsLength, uint8_t fromBase, uint
 }
 
 
-//conversion validation / part 2
+//main conversion validation / part 2
 bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, uint16_t outputSize){
     //simpe tests
     if (!x || !*x) return false; //address
@@ -248,11 +248,49 @@ bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, u
 }
 
 
+//main calculation
+bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, uint8_t fromBase2, uint8_t toBase, char* output, uint16_t outputSize){
+    //validation for operator (just in case something goes wrong)
+    if (!oper || oper[0] == '\0' || oper[1] != '\0'){
+        return false;
+    }
+    if (!num1 || !num2 || !output){
+        return false;
+    }
+    if (toBase < 2 || toBase > BOOK_LENGTH){
+        return false;
+    }
+   
+    //set to decimal
+    char dec1[64], dec2[64];
+    if(!conversion(num1, fromBase1, 10, dec1, sizeof(dec1))){
+        return false;
+    }
+    if(!conversion(num2, fromBase2, 10, dec2, sizeof(dec2));){
+        return false;
+    }
+
+    long dec1P = atol(dec1); //parsing
+    long dec2P = atol(dec2);
+
+    //actual calculations
+    long result = 0;
+    
+    
+
+}
+
 int main()
 {
     char out[64];
-    cout << "conversion 1: " << conversion("273", 10, 2, out, sizeof(out));
-    cout << "conversion 2: " << conversion("0572", 8, 50, out, sizeof(out));
+
+    //test 1
+    conversion("273", 10, 2, out, sizeof(out)) ;
+    cout << "conversion 1: " << out << endl;
+
+    //test 2
+    conversion("0572", 8, 50, out, sizeof(out));
+    cout << "conversion 2: " << out;
 
     return 0;
 }

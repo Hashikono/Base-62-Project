@@ -72,8 +72,7 @@ void loop()
 
 
 //TODO - Literally a list
-// * Solder the A0 (I believe) memory adddress together
-// * match the memory address of the coded LCD to the soldered LCD
+
 // * make the degree-servo motor system like in arduino's examples
 // * set the potentiometers parameters (initialization) to detect degrees
 // * Get the potentiometers to scroll through values when they are turned respectively
