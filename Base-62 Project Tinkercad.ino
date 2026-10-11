@@ -444,7 +444,7 @@ void screenSwitch(string target){
 
     //screens
     currentScreen = target;
-    if(target == "default){
+    if(target == "default"){
         screen = {
         "    Press !     ", 
         "    to start    ",
@@ -478,14 +478,13 @@ void screenSwitch(string target){
     }
     else if (target == "conversion"){
         screen = {
-        "  "From" Value: ",
+        "  \"From\" Value: ",
         "                ",
-        "  "To" Value:   ",
+        "  \"To\" Value:   ",
         "                "
         };
     }
     else if (target == "conversion execute"){
-        "****************"
         screen = {
         "  Result:       ",
         "                ",
@@ -494,7 +493,6 @@ void screenSwitch(string target){
         };
     }
     else if (target == "calculation"){
-        "****************"
         screen = {
         "  Value 1:      ",
         "                ",
