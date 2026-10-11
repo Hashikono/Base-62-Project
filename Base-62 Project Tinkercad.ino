@@ -35,24 +35,10 @@ const int[] buttonLink = {2, 3, 4};
 
 //screen stuff
 string screen[] = {"****************", "****************", "****************", "****************"};
-/* Screen template:
-        screen = {
-        "****************" 
-        "****************" 
-        "****************" 
-        "****************"
-        };
-    */
-screen = {
-        "    Press !     " 
-        "    to start    " 
-        "     ZzZzZ      " 
-        "   ( - . - )    "
-        };
 
 //operation variables
 string currentScreen = "default"
-int power = LOW; //tracks turning machine on/off
+bool power = false; //tracks turning machine on/off
 int fromBase = 10; //conversion from base setting
 int toBase = 10; //conversion to base setting
 char operationType = '+'; //operation setting
@@ -446,16 +432,90 @@ void potentRouting(int potentNum){
     */
 }
 
-void defaults(){
-    //reset variables
-    screen = {
-        "    Press !     " 
-        "    to start    " 
-        "     ZzZzZ      " 
+void screenSwitch(string target){
+    /* Screen template:
+        screen = {
+        "****************", 
+        "****************",
+        "****************", 
+        "****************"
+        };
+    */
+
+    //screens
+    currentScreen = target;
+    if(target == "default){
+        screen = {
+        "    Press !     ", 
+        "    to start    ",
+        "     ZzZzZ      ",
         "   ( - . - )    "
         };
-    currentScreen = "default"
-    power = LOW; 
+    }
+    else if (target == "main"){
+        screen = {
+        "  Base          ", 
+        "  Operation     ",
+        "  Conversion    ",
+        "  Calculation   "
+        };
+    }
+    else if (target == "base setting"){
+        screen = {
+        "  Base From:    ",
+        "  Base To:      ",
+        "  back          ",
+        "                "
+        };
+    }
+    else if (target == "operation setting"){
+        screen = {
+        "  Operation:     ",
+        "  back          ",
+        "                ",
+        "                "
+        };
+    }
+    else if (target == "conversion"){
+        screen = {
+        "  "From" Value: ",
+        "                ",
+        "  "To" Value:   ",
+        "                "
+        };
+    }
+    else if (target == "conversion execute"){
+        "****************"
+        screen = {
+        "  Result:       ",
+        "                ",
+        "                ",
+        "  back          "
+        };
+    }
+    else if (target == "calculation"){
+        "****************"
+        screen = {
+        "  Value 1:      ",
+        "                ",
+        "  Value 2:      ",
+        "                "
+        };
+    }
+    else if (target == "calculation execute"){
+        screen = {
+        "  Result:       ",
+        "                ",
+        "                ",
+        "  back          "
+        };
+    }
+
+    screenPrint();
+}
+
+void defaults(){
+    //reset variables
     fromBase = 10;
     toBase = 10;
     operationType = '+';
@@ -473,14 +533,15 @@ void defaults(){
         potentRouting(pot);
     }
     
+    screenSwitch("default");
     screenPrint();
 }
 
 
-
+//NOTE ------ [Initialization] ------
 void setup() 
 {
-    //NOTE ------ [Initialization] ------
+    
     Serial.begin(9600);
 
     //Pin settings
@@ -495,27 +556,63 @@ void setup()
     defaults();
 }
 
+
+
+//NOTE - Copy-paste everything in this loop() to the IRL loop()
 void loop()
 {
-    //NOTE - Copy-paste everything in this loop() to the IRL loop()
-    //starting placement
-    if ()
+    //power toggle
+    if (digitalRead(mainButtonLink) == HIGH && power == false){
+        power = true;
+        screenSwitch("main");
+    }
+    else if (digitalRead(mainButtonLink) == HIGH && power == true){
+        power = false;
+        defaults();
+    }
     
+    //main
+    if (power){
+        //set scrolling on main screen
+        if (currentScreen == "main"){
+            
+        }
+        
 
+    } else {
+        defaults();
+    }
+
+
+    /*
+    //connection variables
+    mainButtonLink = 8; 
+    piezoLink = 9; 
+    servoLink = 10;
+    potentLink = {A0, A1, A2};
+    buttonLink = {2, 3, 4};
+
+    
+    currentScreen = "default"
+    fromBase = 10; 
+    toBase = 10;
+    operationType = '+'; 
+    value1[] = "0"; 
+    value2[] = "0";
+    result[] = "0"; 
+    currentDegree[] = {0, 0, 0}; 
+    scrollPlacement[] = {1, 1, 1, 1}; 
+    potentInput[] = "0Aa"; 
+    potentBases[] = {0,32}; 
+    */
     
 }
 
 
 //TODO - Literally a list
-
-// * make the degree-servo motor system like in arduino's examples
-// * set the potentiometers parameters (initialization) to detect degrees
-// * Get the potentiometers to scroll through values when they are turned respectively
-//      - input 1 -> 0-9 ; input 2 -> A-Z ; input 3 -> a-z
-// * Make a function tht handles displaying on LCD
-//      - Use it to replace the cat "initial display" in setup()
 // * Add the Tinkercad design/link to github README etc.
 //      - Maybe also include pictures of different sections???
+// * piece main os together from manual
 
 
 //NOTE ------ [Manual] ------
@@ -531,7 +628,7 @@ void loop()
         - Update and check all potentiometer states
         - Reset all variables to default
 
-    - Menu screen:
+    - Main screen:
         - % Base <setting screen> (sets the bases)
         - % Operation <setting screen> (sets the operation in calc. mode)
         - % Conversion <screen> (only converts)
