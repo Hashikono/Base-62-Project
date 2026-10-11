@@ -29,19 +29,24 @@ using namespace std;
 
 //NOTE ------ [Global variables] ------
 //connection variables
-const int mainButton = 8; const int piezo = 9; const int serv = 10;
-const int potent1 = A0; const int potent2 = A1; const int potent3 = A2;
-const int button1 = 2; const int button2 = 3; const int button3 = 4;
+const int mainButtonLink = 8; const int piezoLink = 9; const int servoLink = 10;
+const int[] potentLink = {A0, A1, A2};
+const int[] buttonLink = {2, 3, 4};
 
 //operation variables
 string screen[] = {"****************", "****************", "****************", "****************"};
-int power = LOW;
-int inputBase = 2;
-int outputBase = 10;
+int power = LOW; //tracks turning machine on/off
+int fromBase = 10; //conversion from base setting
+int toBase = 10; //conversion to base setting
+char operationType = '+'; //operation setting
+char value1[] = "0"; //input value (only updates after confirmation)
+char value2[] = "0"; //input value (only updates after confirmation)
+char result[] = "0"; // calculation or conversion result
 
-int currentDegree1;
-int currentDegree2;
-int currentDegree3;
+int currentDegree[] = {0, 0, 0}; //potentiometer current degree
+int scrollPlacement[] = {1, 1, 1, 1}; //scrolling in a 4-sector screen
+char potentInput[] = "0Aa"; //input value for potentiometer (only value1 / value2 inputting)
+int potentBases[] = {0,32}; //input value for potentiometer (only value1 / value2 inputting)
 
 
 
@@ -94,7 +99,7 @@ uint8_t toUnary(uint16_t val, char* output, uint8_t outputSize){
     return (uint8_t)val;
 }
 
-//conversion to binary -> making all of this  arduino compatible is killing me
+//conversion to binary (making all of this arduino compatible is killing me)
 uint8_t toBinary(char c, uint8_t base, char* outputt, uint8_t outputSize){
     //literally just its index...
     int16_t ind = bookIndex(c, base);
@@ -350,7 +355,9 @@ bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, ui
 
 
 //NOTE ------ [Misc. functions] ------
-void screenPrint(){ //LCD implication
+
+//LCD Printing
+void screenPrint(){
     //Screen 1
     lcd1.setCursor(0, 0);
     lcd1.print(screen[0]);
@@ -363,6 +370,65 @@ void screenPrint(){ //LCD implication
     lcd2.setCursor(0, 1);
     lcd2.print(screen[3]);
 }
+
+//Angle routing for potentiometer
+void potentRouting(int potentNum){
+    //angle establishment
+    int ind = potentNum - 1;
+    int rawPotentValue = analogRead(potentLink[ind]);
+    currentDegree[ind] =  map(rawPotentValue, 0, 1023, 0, 179);
+    
+    //value distribution
+    const char bookNumbers[] = "0123456789";
+    const char bookOperators[] = "+-*/";
+    const char bookUpper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const char bookLower[] = "abcdefghijklmnopqrstuvwxyz";
+    int bookIndex = 0;
+
+    if (potentNum == 1){
+        //input
+        bookIndex = map(currentDegree, 0, 179, 0, 9);
+        potentInput[ind] = bookNumbers[bookIndex];
+        
+        //scrolling
+        for (int i = 0; i < sizeof(scrollPlacement), i++){
+            scrollPlacement[i] = map(currentDegree, 0, 179, 1, 1+i);
+        }
+    }
+
+    else if (potentNum == 2){
+        //input
+        bookIndex = map(currentDegree, 0, 179, 0, 25);
+        potentInput[ind] = bookUpper[bookIndex];
+
+        //bases
+        potentBases[ind-1] = map(currentDegree, 0, 179, 0, 31);
+
+        //operator
+        bookIndex = map(currentDegree, 0, 179, 0, 3);
+        operationType = bookOperators[bookIndex];
+    }
+
+    else if (potentNum == 3){
+        //input
+        bookIndex = map(currentDegree, 0, 179, 0, 25);
+        potentInput[ind] = bookLower[bookIndex];
+
+        //bases
+        potentBases[ind-1] = map(currentDegree, 0, 179, 32, 62);
+    }
+
+    /*
+    main modules:
+        - potent1 => inputs 0-9 scrolling / navigation scrolling
+        - potent2 => inputs A-Z scrolling / bases 0-31 scrolling / operations +-*/ scrolling
+        - potent3 => inputs a-z scrolling / bases 32-62 scrolling
+        - button1 => calc. & convert enter button
+        - button2 => calc. & convert backspace button
+        - button3 => navigation selection button / calc. & convert next button 
+    */
+}
+
 
 
 
@@ -398,6 +464,9 @@ void setup()
         "   ( - . - )    "
         };
     screenPrint();
+    potent1Routing();
+    potent2Routing();
+    potent3Routing();
 }
 
 void loop()
@@ -484,7 +553,5 @@ void loop()
         - button3 => navigation selection button / calc. & convert next button 
 
 */
-
-
 
 

@@ -37,15 +37,3 @@
     10. here
     11. here
     12. here
-
-- Videsh
-1. here
-    2. here
-    3. here
-    4. here
-    5. here
-    6. here
-    7. here
-    8. here
-    9. here
-    10. here
