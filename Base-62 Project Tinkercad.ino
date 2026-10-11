@@ -28,14 +28,13 @@ using namespace std;
 const int mainButton = 8; const int piezo = 9; const int serv = 10;
 const int potent1 = A0; const int potent2 = A1; const int potent3 = A2;
 const int button1 = 2; const int button2 = 3; const int button3 = 4;
-string screen[] = {"****************", "****************", "****************", "****************"};
 
-//derive all characters through this list
-const String book = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 //FIXME - Added some more variables below
-bool io = true;
+//variables native to operation
 
+string screen[] = {"****************", "****************", "****************", "****************"};
+int power = LOW;
 int inputBase = 2;
 int outputBase = 10;
 
@@ -399,8 +398,8 @@ void loop()
 {
     //NOTE - Copy-paste everything in this loop() to the IRL loop()
     //starting placement
-    lcd1.setCursor(0, 0);
-    lcd2.setCursor(0, 0);
+    if ()
+    
 
     
 }
@@ -417,6 +416,66 @@ void loop()
 // * Add the Tinkercad design/link to github README etc.
 //      - Maybe also include pictures of different sections???
 
+/* How to read notes:
+    - Module Format: [Applicable region] [function/values] [interaction type] 
+    - Parenthesis: [default value] <clarification> {max digit length allowed} (notes)
+    - % = selection placeholder (if selected)
+    - # = value placeholder
+
+    main os:
+    - Start screen (press the on button to return to this screen)
+        - At boot:
+        - Update and check all potentiometer states
+        - Reset all variables to default
+
+    - Menu screen:
+        - % Base <setting screen> (sets the bases)
+        - % Operation <setting screen> (sets the operation in calc. mode)
+        - % Conversion <screen> (only converts)
+        - % Calculation <screen> (Calculates and converts)
+
+    - Base setting screen:
+        - % Base From: # [10] {2} (sets to potentiometer degree)
+        - % Base To: # [10] {2}
+        - % back
+
+    - Operation setting screen
+        - % Operation: # [+] {1}
+        - % back
+
+    - Conversion screen
+        - % "From" Value:
+        - % # [0] {14} 
+        - % "To" Value:
+        - % # [0] {14}
+
+    - Conversion execute screen:
+        - % Result:
+        - # [0] {16} 
+        - # [0] {16}
+        - % back 
+
+    - Calculation screen
+        - % Value 1:
+        - % # [0] {14}
+        - % Value 2:
+        - % # [0] {14}
+        
+    - calculation execute screen:
+        - % Result:
+        - # [0] {16} (part 1 of result) 
+        - # [0] {16} (part 2 of result)
+        - % back 
+
+    main modules:
+        - potent1 => inputs 0-9 scrolling / navigation scrolling
+        - potent2 => inputs A-Z scrolling / bases 0-31 scrolling / operations +-*/ scrolling
+        - potent3 => inputs a-z scrolling / bases 32-62 scrolling
+        - button1 => calc. & convert enter button
+        - button2 => calc. & convert backspace button
+        - button3 => navigation selection button / calc. & convert next button 
+
+*/
 
 
 
