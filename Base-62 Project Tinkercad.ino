@@ -50,6 +50,7 @@ int currentDegree[] = {0, 0, 0}; //potentiometer current degree
 int scrollPlacement[] = {1, 1, 1, 1}; //scrolling in a 4-sector screen
 char potentInput[] = "0Aa"; //input value for potentiometer (only value1 / value2 inputting)
 int potentBases[] = {0,32}; //input value for potentiometer (only value1 / value2 inputting)
+int potentChange = 1;
 
 
 
@@ -379,8 +380,17 @@ void potentRouting(int potentNum){
     //angle establishment
     int ind = potentNum - 1;
     int rawPotentValue = analogRead(potentLink[ind]);
+    int prevDegree[] = currentDegree;
     currentDegree[ind] = constrain(map(rawPotentValue, 0, 1023, 0, 179), 0, 179)
     
+    //check which one changed
+    for (int i = 0; i < 3; i++){
+        if (prevDegree[i] != currentDegree[i]){
+            potentChange = i + 1;
+        }
+    }
+    
+
     //value distribution
     const char bookNumbers[] = "0123456789";
     const char bookOperators[] = "+-*/";
@@ -432,6 +442,7 @@ void potentRouting(int potentNum){
     */
 }
 
+//holds every screen
 void screenSwitch(string target){
     /* Screen template:
         screen = {
@@ -508,10 +519,11 @@ void screenSwitch(string target){
         "  back          "
         };
     }
-
+    
     screenPrint();
 }
 
+//resets all variables and screens
 void defaults(){
     //reset variables
     fromBase = 10;
@@ -535,10 +547,30 @@ void defaults(){
     screenPrint();
 }
 
+//manages scrolling behavior
+void scrolling(int type){
+    //clears screen
+    for (int i = 0; i < 4; i++){
+        screen[i][0] = ' ';
+    }
+
+    //type 20 = execution screens (special)
+    if (type == 20){
+        if (scrollPlacement[1] == 1){
+            screen[scrollPlacement[0]-1][0] = '%';
+        } 
+        else if (scrollPlacement[1] == 2) {
+            screen[scrollPlacement[3]-1][0] = '%';
+        }
+    }
+    else { //regular execution
+        screen[scrollPlacement[type-1]-1][0] = '%';
+    }
+}
+
 
 //NOTE ------ [Initialization] ------
-void setup() 
-{
+void setup() {
     
     Serial.begin(9600);
 
@@ -557,8 +589,7 @@ void setup()
 
 
 //NOTE - Copy-paste everything in this loop() to the IRL loop()
-void loop()
-{
+void loop() {
     //power toggle
     if (digitalRead(mainButtonLink) == HIGH && power == false){
         power = true;
@@ -569,11 +600,94 @@ void loop()
         defaults();
     }
     
-    //main
+    //powered
     if (power){
-        //set scrolling on main screen
         if (currentScreen == "main"){
+            scrolling(4);
+            if (digitalRead(buttonLink[2]) == HIGH){
+                string toScreen[] = {"base setting", "operation setting", "conversion", "calculation"}; 
+                screenSwitch(toScreen[scrollPlacement[3]-1]);
+            }
+        }
+
+        else if (currentScreen == "base setting"){
+            scrolling(3);
             
+            //printing the current base conversions
+            if (fromBase > 9){
+                screen[0][13] = (fromBase/10) + '0';
+                screen[0][14] = (fromBase % 10) + '0';
+            } else {
+                screen[0][13] = fromBase + '0';
+            }
+            if (toBase > 9){
+                screen[1][13] = (toBase/10) + '0';
+                screen[1][14] = (toBase % 10) + '0';
+            } else {
+                screen[1][13] = toBase + '0';
+            }
+
+            //coninuous update on fromBase/toBase
+            if (scrollPlacement[2] == 1){
+                //changing from base
+                if (potentChange == 2){
+                    fromBase = potentBases[0];
+                }
+                else if (potentChange == 3){
+                    fromBase = potentBases[1];
+                }
+            }
+            else if (scrollPlacement[2] == 2){
+                //changing to base
+                if (potentChange == 2){
+                    toBase = potentBases[0];
+                }
+                else if (potentChange == 3){
+                    toBase = potentBases[1];
+                }
+            }
+
+            if (digitalRead(buttonLink[2]) == HIGH){
+                if (scrollPlacement[2] == 3){
+                    //back button
+                    screenSwitch("main");
+                }
+            }
+        }
+
+        else if (currentScreen == "operation setting"){
+            scrolling(2);
+
+            //operation printing
+            if (scrollPlacement[1] == 1){
+                screen[0][13] = operationType;
+            }
+            if (digitalRead(buttonLink[2]) == HIGH){
+                if (scrollPlacement[1] == 2){
+                    //back button
+                    screenSwitch("main");
+                }
+            }
+        }
+
+        else if (currentScreen == "conversion"){
+            scrolling(4);
+            
+
+        }
+
+        else if (currentScreen == "conversion execute"){
+            scrolling(20);
+
+        }
+
+        else if (currentScreen == "calculation"){
+            scrolling(4);
+            
+        }
+
+        else if (currentScreen == "calculation execute"){
+            scrolling(20);
         }
         
 
@@ -583,6 +697,7 @@ void loop()
 
 
     /*
+    screen types: main, base setting, operation setting, conversion, conversion execute, calculation, calculation execute
     //connection variables
     mainButtonLink = 8; 
     piezoLink = 9; 
