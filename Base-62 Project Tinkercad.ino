@@ -33,8 +33,25 @@ const int mainButtonLink = 8; const int piezoLink = 9; const int servoLink = 10;
 const int[] potentLink = {A0, A1, A2};
 const int[] buttonLink = {2, 3, 4};
 
-//operation variables
+//screen stuff
 string screen[] = {"****************", "****************", "****************", "****************"};
+/* Screen template:
+        screen = {
+        "****************" 
+        "****************" 
+        "****************" 
+        "****************"
+        };
+    */
+screen = {
+        "    Press !     " 
+        "    to start    " 
+        "     ZzZzZ      " 
+        "   ( - . - )    "
+        };
+
+//operation variables
+string currentScreen = "default"
 int power = LOW; //tracks turning machine on/off
 int fromBase = 10; //conversion from base setting
 int toBase = 10; //conversion to base setting
@@ -376,7 +393,7 @@ void potentRouting(int potentNum){
     //angle establishment
     int ind = potentNum - 1;
     int rawPotentValue = analogRead(potentLink[ind]);
-    currentDegree[ind] =  map(rawPotentValue, 0, 1023, 0, 179);
+    currentDegree[ind] = constrain(map(rawPotentValue, 0, 1023, 0, 179), 0, 179)
     
     //value distribution
     const char bookNumbers[] = "0123456789";
@@ -387,35 +404,35 @@ void potentRouting(int potentNum){
 
     if (potentNum == 1){
         //input
-        bookIndex = map(currentDegree, 0, 179, 0, 9);
+        bookIndex = map(currentDegree[ind], 0, 179, 0, 9);
         potentInput[ind] = bookNumbers[bookIndex];
         
         //scrolling
-        for (int i = 0; i < sizeof(scrollPlacement), i++){
-            scrollPlacement[i] = map(currentDegree, 0, 179, 1, 1+i);
+        for (int i = 0; i < sizeof(scrollPlacement) / sizeof(scrollPlacement[0]; i++){
+            scrollPlacement[i] = map(currentDegree[ind], 0, 179, 1, 1+i);
         }
     }
 
     else if (potentNum == 2){
         //input
-        bookIndex = map(currentDegree, 0, 179, 0, 25);
+        bookIndex = map(currentDegree[ind], 0, 179, 0, 25);
         potentInput[ind] = bookUpper[bookIndex];
 
         //bases
-        potentBases[ind-1] = map(currentDegree, 0, 179, 0, 31);
+        potentBases[ind-1] = map(currentDegree[ind], 0, 179, 0, 31);
 
         //operator
-        bookIndex = map(currentDegree, 0, 179, 0, 3);
+        bookIndex = map(currentDegree[ind], 0, 179, 0, 3);
         operationType = bookOperators[bookIndex];
     }
 
     else if (potentNum == 3){
         //input
-        bookIndex = map(currentDegree, 0, 179, 0, 25);
+        bookIndex = map(currentDegree[ind], 0, 179, 0, 25);
         potentInput[ind] = bookLower[bookIndex];
 
         //bases
-        potentBases[ind-1] = map(currentDegree, 0, 179, 32, 62);
+        potentBases[ind-1] = map(currentDegree[ind], 0, 179, 32, 62);
     }
 
     /*
@@ -429,6 +446,35 @@ void potentRouting(int potentNum){
     */
 }
 
+void defaults(){
+    //reset variables
+    screen = {
+        "    Press !     " 
+        "    to start    " 
+        "     ZzZzZ      " 
+        "   ( - . - )    "
+        };
+    currentScreen = "default"
+    power = LOW; 
+    fromBase = 10;
+    toBase = 10;
+    operationType = '+';
+    value1[] = "0"; 
+    value2[] = "0"; 
+    result[] = "0";
+
+    currentDegree[] = {0, 0, 0}; 
+    scrollPlacement[] = {1, 1, 1, 1}; 
+    potentInput[] = "0Aa"; 
+    potentBases[] = {0,32};    
+
+    //reset potentiometers
+    for (int pot = 1; pot < 4; pot++){
+        potentRouting(pot);
+    }
+    
+    screenPrint();
+}
 
 
 
@@ -446,27 +492,7 @@ void setup()
     lcd1.setBacklight(0);
     lcd2.setBacklight(0);
 
-    //NOTE ------ [Starting screen] ------
-    /* Screen template:
-        screen = {
-        "****************" 
-        "****************" 
-        "****************" 
-        "****************"
-        };
-    */
-
-    //Initial display
-    screen = {
-        "    Press !     " 
-        "    to start    " 
-        "     ZzZzZ      " 
-        "   ( - . - )    "
-        };
-    screenPrint();
-    potent1Routing();
-    potent2Routing();
-    potent3Routing();
+    defaults();
 }
 
 void loop()
