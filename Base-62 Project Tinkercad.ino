@@ -1,18 +1,20 @@
 //---------------------- TINKERCAD ----------------------
-//Note: All "Review Anchors" must be converted from tinkercad/irl
-//NOTE - REMEMBER TO MAKE NOTES IF YOU EDITTED ANYTHING NOT IN LOOP()
 
-//REVIEW - LCD Imports/init
+//NOTE ------ [LCD imports/init] ------
 #include <Adafruit_LiquidCrystal.h>
 Adafruit_LiquidCrystal lcd1(0); //Top/Left Display
 Adafruit_LiquidCrystal lcd2(0); //Bottom/Right Display
 
+
+
+//NOTE ------ [Normal imports] ------
 //Servo Imports/init
 #include <Servo.h>
 Servo keyboardMotor;
 
-//FIXME - new section
-//NOTE - C++ Imports from pure.cpp
+
+
+//NOTE ------ [C++ imports] ------
 #include <string.h>
 #include <stdint.h>
 using namespace std;
@@ -23,16 +25,15 @@ using namespace std;
 #define MAX_BITS 256 //binary buffer/temp storagfe
 #define UNARY_SYM '1'
 
-//FIXME - configured screen variable
-//Global var.
+
+
+//NOTE ------ [Global variables] ------
+//connection variables
 const int mainButton = 8; const int piezo = 9; const int serv = 10;
 const int potent1 = A0; const int potent2 = A1; const int potent3 = A2;
 const int button1 = 2; const int button2 = 3; const int button3 = 4;
 
-
-//FIXME - Added some more variables below
-//variables native to operation
-
+//operation variables
 string screen[] = {"****************", "****************", "****************", "****************"};
 int power = LOW;
 int inputBase = 2;
@@ -42,9 +43,10 @@ int currentDegree1;
 int currentDegree2;
 int currentDegree3;
 
-//STUB - input pure.cpp here
-//SECTION - cpp here
 
+
+//STUB ------ [C++ code] ------
+//SECTION
 //derive chars thru list
 const char BOOK[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 const uint8_t BOOK_LENGTH = 62; //gotta love unsigned integers -_-
@@ -92,7 +94,7 @@ uint8_t toUnary(uint16_t val, char* output, uint8_t outputSize){
     return (uint8_t)val;
 }
 
-//conversion to binary -> making all o fthsi arduino compatible is killing me
+//conversion to binary -> making all of this  arduino compatible is killing me
 uint8_t toBinary(char c, uint8_t base, char* outputt, uint8_t outputSize){
     //literally just its index...
     int16_t ind = bookIndex(c, base);
@@ -345,8 +347,10 @@ bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, ui
 }
 //!SECTION
 
-//FIXME - added new function below
-void screenPrint(){
+
+
+//NOTE ------ [Misc. functions] ------
+void screenPrint(){ //LCD implication
     //Screen 1
     lcd1.setCursor(0, 0);
     lcd1.print(screen[0]);
@@ -360,21 +364,23 @@ void screenPrint(){
     lcd2.print(screen[3]);
 }
 
+
+
 void setup() 
 {
+    //NOTE ------ [Initialization] ------
     Serial.begin(9600);
 
     //Pin settings
     myServo.attach(serv);
     pinMode(piezo, OUTPUT);
 
-    //REVIEW - initialization function
     lcd1.begin(16, 2);
     lcd2.begin(16, 2);
     lcd1.setBacklight(0);
     lcd2.setBacklight(0);
 
-    //FIXME - changed the stuff below
+    //NOTE ------ [Starting screen] ------
     /* Screen template:
         screen = {
         "****************" 
@@ -384,7 +390,7 @@ void setup()
         };
     */
 
-    /Initial display
+    //Initial display
     screen = {
         "    Press !     " 
         "    to start    " 
@@ -416,6 +422,8 @@ void loop()
 // * Add the Tinkercad design/link to github README etc.
 //      - Maybe also include pictures of different sections???
 
+
+//NOTE ------ [Manual] ------
 /* How to read notes:
     - Module Format: [Applicable region] [function/values] [interaction type] 
     - Parenthesis: [default value] <clarification> {max digit length allowed} (notes)
