@@ -20,6 +20,7 @@ Servo keyboardMotor;
 
 //setting definitions
 #define MAX_BOOK_LENGTH 62
+#define MAX_VALUE_LENGTH 14
 #define MAX_INPUT_LENGTH 16 //limit to 16 in the LCD
 #define MAX_BITS 256 //binary buffer/temp storage
 #define UNARY_SYM '1'
@@ -45,13 +46,15 @@ int toBase = 10; //conversion to base setting
 char operationType = '+'; //operation setting
 char value1[16] = "0"; //input value (only updates after confirmation)
 char value2[16] = "0"; //input value (only updates after confirmation)
-char resultStr[17] = "0"; // calculation or conversion result (renamed: was shadowed by a local)
+char resultStr[33] = "0"; // calculation or conversion result
 
 int currentDegree[3] = {0, 0, 0}; //potentiometer current degree
 int scrollPlacement[4] = {1, 1, 1, 1}; //scrolling in a 4-sector screen
 char potentInput[4] = {'0', 'A', 'a', '\0'}; 
 int potentBases[2] = {1, 32}; 
 int potentChange = 0; //which potentiometer moved THIS loop (0 = none)
+int activePot = 1; 
+int inputField = 0;
 
 //button edge detection
 bool lastBtn[3] = {LOW, LOW, LOW};
@@ -435,6 +438,7 @@ void screenSwitch(const char* target){
         strcpy(screen[1], "                ");
         strcpy(screen[2], "  \"To\" Value:   ");
         strcpy(screen[3], "                ");
+        inputField = 0; //reset result
     }
     else if (strcmp(target, "conversion execute") == 0){
         strcpy(screen[0], "  Result:       ");
@@ -447,6 +451,7 @@ void screenSwitch(const char* target){
         strcpy(screen[1], "                ");
         strcpy(screen[2], "  Value 2:      ");
         strcpy(screen[3], "                ");
+        inputField = 0; //reset result
     }
     else if (strcmp(target, "calculation execute") == 0){
         strcpy(screen[0], "  Result:       ");
@@ -496,6 +501,9 @@ void scrolling(int type){
             screen[scrollPlacement[3]-1][0] = '%';
         }
     }
+    else if (type == 30){ //conversion and calculation exeption
+        screen[inputField*2 + 1][0] = '%';
+    }
     else { //regular execution
         screen[scrollPlacement[type-1]-1][0] = '%';
     }
@@ -526,6 +534,7 @@ void valueRow(int row, const char* value, bool act){
             display[len+1] = '\0'; //ender
         }
     }
+    rowPrint(row, 2, display);
 }
 
 //actual display of row
@@ -674,7 +683,7 @@ void loop() {
             scrolling(2);
 
             const char bookOperators[] = "+-*/";
-            if (scrollPlacement[1] == 1 && potentChange == 2){
+            if (scrollPlacement[1] == 1){
                 operationType = bookOperators[map(currentDegree[1], 0, 179, 0, 3)];
             }
             screen[0][13] = operationType;
@@ -685,7 +694,7 @@ void loop() {
         }
 
         else if (strcmp(currentScreen, "conversion") == 0){
-            scrolling(4);
+            scrolling(30);
 
             //typing sequence
             editValue(value1);
@@ -694,7 +703,7 @@ void loop() {
                 if (!conversion(value1, fromBase, toBase, resultStr, sizeof(resultStr))){
                     strcpy(resultStr, "Error");
                 }
-                screenSwitch("conversion execute);
+                screenSwitch("conversion execute");
                 showResult();
             }
         }
@@ -708,10 +717,10 @@ void loop() {
         }
 
         else if (strcmp(currentScreen, "calculation") == 0){
-            scrolling(4);
+            scrolling(30);
             editValue(inputField == 0 ? value1 : value2); //current editor
             valueRow(1, value1, inputField == 0);
-            valueRow(3, value2, inputField == 0);
+            valueRow(3, value2, inputField == 1);
             if (btnPressed[2]){
                 //calc. execution
                 if (inputField == 0){
@@ -719,7 +728,7 @@ void loop() {
                 }
                 else {
                     char oper[2] = {operationType, '\0'};
-                    if (!calculation(oper, value1, value2, fromBase, toBase, resultStr, sizeof(resultStr))){
+                    if (!calculation(oper, value1, value2, fromBase, fromBase, toBase, resultStr, sizeof(resultStr))){
                         strcpy(resultStr, "Error");
                     }
                     screenSwitch("calculation execute");
