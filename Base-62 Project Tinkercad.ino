@@ -381,13 +381,8 @@ void potentRouting(int potentNum){
         //input
         potentInput[0] = bookNumbers[map(newDegree, 0, 179, 0, 9)];
 
-        //scrolling
-        if (potentNum == 1){
-            potentInput[0] = bookNumbers[map(newDegree, 0, 179, 0, 9)];
-
-            //scrolling 1-4 with clamps
-            currentRow = map(newDegree, 0, 179, 1, 4);
-        }
+        //scrolling 1-4 with clamps
+        currentRow = map(newDegree, 0, 179, 1, 4);
     }
     else if (potentNum == 2){
         potentInput[1] = bookUpper[map(newDegree, 0, 179, 0, 25)];
@@ -492,7 +487,7 @@ void defaults(){
 }
 
 //manages scrolling behavior (drawing happens once per loop in loop())
-void scrolling(int type){
+void scrolling(int rows){
     for (int i = 0; i < 4; i++){
         screen[i][0] = ' ';
     }
@@ -518,6 +513,19 @@ void printNumber(int row, int n){
     }
 }
 
+//actual display of row
+void rowPrint(int row, int start, const char* text){
+    int pos = start;
+    //text throughout row
+    while (*text && pos < 16){
+        screen[row][pos++] = *text++;
+    }
+    //endspace filler
+    while (pos < 16){
+        screen[row][pos++] = ' ';
+    }
+}
+
 //[LCD] row value set
 void valueRow(int row, const char* value, bool act){
     char display[MAX_VALUE_LENGTH + 2];
@@ -533,19 +541,6 @@ void valueRow(int row, const char* value, bool act){
         }
     }
     rowPrint(row, 2, display);
-}
-
-//actual display of row
-void rowPrint(int row, int start, const char* text){
-    int pos = start;
-    //text throughout row
-    while (*text && pos < 16){
-        screen[row][pos++] = *text++;
-    }
-    //endspace filler
-    while (pos < 16){
-        screen[row][pos++] = ' ';
-    }
 }
 
 //character validation
@@ -694,8 +689,8 @@ void loop() {
         else if (strcmp(currentScreen, "conversion") == 0){
              //typing sequence
             editValue(value1);
-            valueRow(1, value1, true);
-            scrolling(1);
+            currentRow = 1;
+            scrolling(2);
 
             if (btnPressed[2]){
                 if (!conversion(value1, fromBase, toBase, resultStr, sizeof(resultStr))){
