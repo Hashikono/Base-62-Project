@@ -512,6 +512,84 @@ void printNumber(int row, int n){
     }
 }
 
+//[LCD] row value set
+void valueRow(int row, const char* value, bool act){
+    char display[MAX_VALUE_LENGTH + 2];
+    strcpy(display, value);
+    if (act) {
+        int len = strlen(display);
+        if(strcmp(value, "0") == 0){
+            len = 0;
+        }
+        if (len < MAX_VALUE_LENGTH){
+            display[len] = potentInput[activePot - 1];
+            display[len+1] = '\0'; //ender
+        }
+    }
+}
+
+//actual display of row
+void rowPrint(int row, int start, const char* text){
+    int pos = start;
+    //text throughout row
+    while (*text && pos < 16){
+        screen[row][pos++] = *text++;
+    }
+    //endspace filler
+    while (pos < 16){
+        screen[row][pos++] = ' ';
+    }
+}
+
+//character validation
+bool validChar(char c, int base){
+    if (base == 1){
+        return c == UNARY_SYM;
+    }
+    return bookIndex(c, base) >= 0;
+}
+
+//displays number in execution screen
+void showResult(){
+    if (resultStr[0] == '\0'){
+        strcpy(resultStr, "0"); //ending
+    }
+    rowPrint(1, 0, resultStr);
+    //moving to 2nd row
+    if (strlen(resultStr) > 16){
+        rowPrint(2, 0, resultStr + 16);
+    }
+    else {
+        rowPrint(2, 0, "");
+    }
+}
+
+//value editor (for enter/backspace)
+void editValue(char* current){
+    //enter
+    if (btnPressed[0]){
+        char pick = potentInput[activePot - 1];
+        int length = strlen(current);
+        if (strcmp(current, "0") == 0){
+            length = 0;
+        }
+        if (validChar(pick, fromBase) && length < MAX_VALUE_LENGTH){
+            current[length] = pick;
+            current[length + 1] = '\0'; //ender
+        }
+    }
+    //backspace
+    if (btnPressed[1]){
+        int length = strlen(current);
+        if (length > 1){
+            current[length-1] = '\0';
+        }
+        else {
+            strcpy(current, "0");
+        }
+    }
+}
+
 
 //NOTE ------ [Initialization] ------
 void setup() {
@@ -608,18 +686,54 @@ void loop() {
 
         else if (strcmp(currentScreen, "conversion") == 0){
             scrolling(4);
+
+            //typing sequence
+            editValue(value1);
+            valueRow(1, value1, true);
+            if (btnPressed[2]){
+                if (!conversion(value1, fromBase, toBase, resultStr, sizeof(resultStr))){
+                    strcpy(resultStr, "Error");
+                }
+                screenSwitch("conversion execute);
+                showResult();
+            }
         }
 
         else if (strcmp(currentScreen, "conversion execute") == 0){
             scrolling(20);
+            showResult();
+            if (btnPressed[2]){
+                screenSwitch("main");
+            }
         }
 
         else if (strcmp(currentScreen, "calculation") == 0){
             scrolling(4);
+            editValue(inputField == 0 ? value1 : value2); //current editor
+            valueRow(1, value1, inputField == 0);
+            valueRow(3, value2, inputField == 0);
+            if (btnPressed[2]){
+                //calc. execution
+                if (inputField == 0){
+                    inputField = 1;
+                }
+                else {
+                    char oper[2] = {operationType, '\0'};
+                    if (!calculation(oper, value1, value2, fromBase, toBase, resultStr, sizeof(resultStr))){
+                        strcpy(resultStr, "Error");
+                    }
+                    screenSwitch("calculation execute");
+                    showResult();
+                }
+            }
         }
 
         else if (strcmp(currentScreen, "calculation execute") == 0){
             scrolling(20);
+            showResult();
+            if (btnPressed[2]){
+                screenSwitch("main");
+            }
         }
 
         screenPrint();
