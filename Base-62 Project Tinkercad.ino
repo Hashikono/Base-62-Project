@@ -49,7 +49,7 @@ char value2[16] = "0"; //input value (only updates after confirmation)
 char resultStr[33] = "0"; // calculation or conversion result
 
 int currentDegree[3] = {0, 0, 0}; //potentiometer current degree
-int scrollPlacement[4] = {1, 1, 1, 1}; //scrolling in a 4-sector screen
+int currentRow = 1; //replaces scrollPlacement
 char potentInput[4] = {'0', 'A', 'a', '\0'}; 
 int potentBases[2] = {1, 32}; 
 int potentChange = 0; //which potentiometer moved THIS loop (0 = none)
@@ -382,8 +382,11 @@ void potentRouting(int potentNum){
         potentInput[0] = bookNumbers[map(newDegree, 0, 179, 0, 9)];
 
         //scrolling
-        for (int i = 0; i < 4; i++){
-            scrollPlacement[i] = map(newDegree, 0, 179, 1, 1 + i);
+        if (potentNum == 1){
+            potentInput[0] = bookNumbers[map(newDegree, 0, 179, 0, 9)];
+
+            //scrolling 1-4 with clamps
+            currentRow = map(newDegree, 0, 179, 1, 4);
         }
     }
     else if (potentNum == 2){
@@ -473,7 +476,9 @@ void defaults(){
     strcpy(resultStr, "0");
 
     currentDegree[0] = currentDegree[1] = currentDegree[2] = 0;
-    scrollPlacement[0] = scrollPlacement[1] = scrollPlacement[2] = scrollPlacement[3] = 1;
+    currentRow = 1;
+    inputField = 0;
+    activePot = 1;
     strcpy(potentInput, "0Aa"); //fits now that potentInput is 4 bytes
     potentBases[0] = 1; potentBases[1] = 32;
 
@@ -492,21 +497,14 @@ void scrolling(int type){
         screen[i][0] = ' ';
     }
 
-    //type 20 = execution screens (special)
-    if (type == 20){
-        if (scrollPlacement[1] == 1){
-            screen[scrollPlacement[0]-1][0] = '%';
-        }
-        else if (scrollPlacement[1] == 2) {
-            screen[scrollPlacement[3]-1][0] = '%';
-        }
+    if (currentRow < 1){
+        currentRow = 1;
     }
-    else if (type == 30){ //conversion and calculation exeption
-        screen[inputField*2 + 1][0] = '%';
+    if (currentRow > rows){
+        currentRow = rows;
     }
-    else { //regular execution
-        screen[scrollPlacement[type-1]-1][0] = '%';
-    }
+
+    screen[currentRow - 1][0] = '%';
 }
 
 //writes a 1-2 digit number at columns 13-14 of a row (clears the old 2nd digit)
@@ -657,7 +655,7 @@ void loop() {
             scrolling(4);
             if (btnPressed[2]){
                 const char* toScreen[] = {"base setting", "operation setting", "conversion", "calculation"};
-                screenSwitch(toScreen[scrollPlacement[3]-1]);
+                screenSwitch(toScreen[currentRow - 1]);
             }
         }
 
@@ -667,14 +665,14 @@ void loop() {
             //switching rows would overwrite the other base with a stale value
             if (potentChange == 2 || potentChange == 3){
                 int newBase = (potentChange == 2) ? potentBases[0] : potentBases[1];
-                if (scrollPlacement[2] == 1)      fromBase = newBase;
-                else if (scrollPlacement[2] == 2) toBase = newBase;
+                if (currentRow == 1)      fromBase = newBase;
+                else if (currentRow == 2) toBase = newBase;
             }
 
             printNumber(0, fromBase);
             printNumber(1, toBase);
 
-            if (btnPressed[2] && scrollPlacement[2] == 3){
+            if (btnPressed[2] && currentRow == 3){
                 screenSwitch("main"); //back button
             }
         }
@@ -683,22 +681,22 @@ void loop() {
             scrolling(2);
 
             const char bookOperators[] = "+-*/";
-            if (scrollPlacement[1] == 1){
+            if (currentRow == 1){
                 operationType = bookOperators[map(currentDegree[1], 0, 179, 0, 3)];
             }
             screen[0][13] = operationType;
 
-            if (btnPressed[2] && scrollPlacement[1] == 2){
+            if (btnPressed[2] && currentRow == 2){
                 screenSwitch("main"); //back button
             }
         }
 
         else if (strcmp(currentScreen, "conversion") == 0){
-            scrolling(30);
-
-            //typing sequence
+             //typing sequence
             editValue(value1);
             valueRow(1, value1, true);
+            scrolling(1);
+
             if (btnPressed[2]){
                 if (!conversion(value1, fromBase, toBase, resultStr, sizeof(resultStr))){
                     strcpy(resultStr, "Error");
@@ -709,7 +707,8 @@ void loop() {
         }
 
         else if (strcmp(currentScreen, "conversion execute") == 0){
-            scrolling(20);
+            currentRow = 1;
+            scrolling(1);
             showResult();
             if (btnPressed[2]){
                 screenSwitch("main");
@@ -717,10 +716,14 @@ void loop() {
         }
 
         else if (strcmp(currentScreen, "calculation") == 0){
-            scrolling(30);
             editValue(inputField == 0 ? value1 : value2); //current editor
             valueRow(1, value1, inputField == 0);
             valueRow(3, value2, inputField == 1);
+
+            //sets scroller
+            currentRow = inputField + 1;
+            scrolling(2);
+
             if (btnPressed[2]){
                 //calc. execution
                 if (inputField == 0){
@@ -738,7 +741,8 @@ void loop() {
         }
 
         else if (strcmp(currentScreen, "calculation execute") == 0){
-            scrolling(20);
+            currentRow = 1;
+            scrolling(1);
             showResult();
             if (btnPressed[2]){
                 screenSwitch("main");
