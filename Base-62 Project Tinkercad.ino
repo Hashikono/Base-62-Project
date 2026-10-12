@@ -17,6 +17,7 @@ Servo keyboardMotor;
 //NOTE ------ [C++ imports] ------
 #include <string.h>
 #include <stdint.h>
+#include <stdlib.h>
 using namespace std;
 
 //setting definitions
@@ -30,26 +31,26 @@ using namespace std;
 //NOTE ------ [Global variables] ------
 //connection variables
 const int mainButtonLink = 8; const int piezoLink = 9; const int servoLink = 10;
-const int[] potentLink = {A0, A1, A2};
-const int[] buttonLink = {2, 3, 4};
+const int potentLink[] = {A0, A1, A2};
+const int buttonLink[] = {2, 3, 4};
 
 //screen stuff
-string screen[] = {"****************", "****************", "****************", "****************"};
+char screen[4][17] = {"****************", "****************", "****************", "****************"};
 
 //operation variables
-string currentScreen = "default"
+char currentScreen[24] = "default";
 bool power = false; //tracks turning machine on/off
 int fromBase = 10; //conversion from base setting
 int toBase = 10; //conversion to base setting
 char operationType = '+'; //operation setting
-char value1[] = "0"; //input value (only updates after confirmation)
-char value2[] = "0"; //input value (only updates after confirmation)
-char result[] = "0"; // calculation or conversion result
+char value1[16] = "0"; //input value (only updates after confirmation)
+char value2[16] = "0"; //input value (only updates after confirmation)
+char result[17] = "0"; // calculation or conversion result
 
-int currentDegree[] = {0, 0, 0}; //potentiometer current degree
-int scrollPlacement[] = {1, 1, 1, 1}; //scrolling in a 4-sector screen
-char potentInput[] = "0Aa"; //input value for potentiometer (only value1 / value2 inputting)
-int potentBases[] = {0,32}; //input value for potentiometer (only value1 / value2 inputting)
+int currentDegree[3] = {0, 0, 0}; //potentiometer current degree
+int scrollPlacement[4] = {1, 1, 1, 1}; //scrolling in a 4-sector screen
+char potentInput[3] = {'0', 'A', 'a'}; //input value for potentiometer (only value1 / value2 inputting)
+int potentBases[2] = {0,32}; //input value for potentiometer (only value1 / value2 inputting)
 int potentChange = 1;
 
 
@@ -78,7 +79,7 @@ uint8_t bitLength(uint8_t bookSize){
         commonCap <<= 1; //shifting left
         bits++;
     }
-    return bits++;
+    return bits;
 }
 
 //special cases (in a sense):
@@ -113,7 +114,7 @@ uint8_t toBinary(char c, uint8_t base, char* outputt, uint8_t outputSize){
 
     //bit length setting
     uint8_t bits = bitLength(base);
-    if (bits +1> outputSize){
+    if (bits + 1 > outputSize){
         return 0;
     }
 
@@ -128,7 +129,7 @@ uint8_t toBinary(char c, uint8_t base, char* outputt, uint8_t outputSize){
 
 //conversion part 1 through constant division
 bool digitsToBaseStr(char* digits, uint16_t digitsLength, uint8_t fromBase, uint8_t toBase, char* output, uint16_t outputSize){
-    //get rid of leading 0s - somehting forgotten in the base 2^x system
+    //get rid of leading 0s - something forgotten in the base 2^x system
     uint16_t startingVal = 0;
     while (startingVal < digitsLength && digits[startingVal] == 0){
         startingVal++;
@@ -167,7 +168,7 @@ bool digitsToBaseStr(char* digits, uint16_t digitsLength, uint8_t fromBase, uint
 
         //invalidation check
         if (tempLength >= sizeof(temp)){
-            return  false;
+            return false;
         }
 
         //tempoart filled with carry value
@@ -199,7 +200,7 @@ bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, u
     //unary > unary
     if (fromBase == 1 && toBase == 1){
         uint16_t conv = fromUnary(x);
-        return toUnary(conv, output, ((uint8_t)outputSize) > 0 || conv == 0);
+        return toUnary(conv, output, (uint8_t)outputSize > 0 || conv == 0);
     }
     
     //unary > arbitrary
@@ -220,7 +221,7 @@ bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, u
         char buffer[MAX_BITS];
         uint16_t num = 0;
         while (conv > 0) {
-            buffer[num++] = (char)(conv & toBase); //similar val
+            buffer[num++] = (char)(conv % toBase); //similar val
             conv /= toBase; // constant division
         }
         
@@ -247,6 +248,9 @@ bool conversion(const char* x, uint8_t fromBase, uint8_t toBase, char* output, u
             value *= fromBase;
             value += dig;
         }
+        
+        //how did I forget this...
+        return toUnary(value, output, (uint8_t)outputSize) > 0 || value == 0;
     }
 
     //arbitrary > arbitrary
@@ -380,8 +384,9 @@ void potentRouting(int potentNum){
     //angle establishment
     int ind = potentNum - 1;
     int rawPotentValue = analogRead(potentLink[ind]);
-    int prevDegree[] = currentDegree;
-    currentDegree[ind] = constrain(map(rawPotentValue, 0, 1023, 0, 179), 0, 179)
+    int prevDegree[3];
+    memcpy(prevDegree, currentDegree, sizeof(prevDegree));
+    currentDegree[ind] = constrain(map(rawPotentValue, 0, 1023, 0, 179), 0, 179);
     
     //check which one changed
     for (int i = 0; i < 3; i++){
@@ -396,36 +401,36 @@ void potentRouting(int potentNum){
     const char bookOperators[] = "+-*/";
     const char bookUpper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const char bookLower[] = "abcdefghijklmnopqrstuvwxyz";
-    int bookIndex = 0;
+    int idx = 0;
 
     if (potentNum == 1){
         //input
-        bookIndex = map(currentDegree[ind], 0, 179, 0, 9);
-        potentInput[ind] = bookNumbers[bookIndex];
+        idx = map(currentDegree[ind], 0, 179, 0, 9);
+        potentInput[ind] = bookNumbers[idx];
         
         //scrolling
-        for (int i = 0; i < sizeof(scrollPlacement) / sizeof(scrollPlacement[0]; i++){
+        for (int i = 0; i < (int)(sizeof(scrollPlacement) /(sizeof(scrollPlacement[0])); i++){
             scrollPlacement[i] = map(currentDegree[ind], 0, 179, 1, 1+i);
         }
     }
 
     else if (potentNum == 2){
         //input
-        bookIndex = map(currentDegree[ind], 0, 179, 0, 25);
-        potentInput[ind] = bookUpper[bookIndex];
+        idx = map(currentDegree[ind], 0, 179, 0, 25);
+        potentInput[ind] = bookUpper[idx];
 
         //bases
-        potentBases[ind-1] = map(currentDegree[ind], 0, 179, 0, 31);
+        potentBases[ind] = map(currentDegree[ind], 0, 179, 0, 31);
 
         //operator
-        bookIndex = map(currentDegree[ind], 0, 179, 0, 3);
-        operationType = bookOperators[bookIndex];
+        idx = map(currentDegree[ind], 0, 179, 0, 3);
+        operationType = bookOperators[idx];
     }
 
     else if (potentNum == 3){
         //input
-        bookIndex = map(currentDegree[ind], 0, 179, 0, 25);
-        potentInput[ind] = bookLower[bookIndex];
+        idx = map(currentDegree[ind], 0, 179, 0, 25);
+        potentInput[ind] = bookLower[idx];
 
         //bases
         potentBases[ind-1] = map(currentDegree[ind], 0, 179, 32, 62);
@@ -443,7 +448,7 @@ void potentRouting(int potentNum){
 }
 
 //holds every screen
-void screenSwitch(string target){
+void screenSwitch(const char* target){
     /* Screen template:
         screen = {
         "****************", 
@@ -454,70 +459,54 @@ void screenSwitch(string target){
     */
 
     //screens
-    currentScreen = target;
-    if(target == "default"){
-        screen = {
-        "    Press !     ", 
-        "    to start    ",
-        "     ZzZzZ      ",
-        "   ( - . - )    "
-        };
+    strcpy(currentScreen, target);
+    if (strcmp(target, "default") == 0){
+        strcpy(screen[0], "    Press !     ");
+        strcpy(screen[1], "    to start    ");
+        strcpy(screen[2], "     ZzZzZ      ");
+        strcpy(screen[3], "   ( - . - )    ");
     }
-    else if (target == "main"){
-        screen = {
-        "  Base          ", 
-        "  Operation     ",
-        "  Conversion    ",
-        "  Calculation   "
-        };
+    else if (strcmp(target, "main") == 0){
+        strcpy(screen[0], "  Base          ");
+        strcpy(screen[1], "  Operation     ");
+        strcpy(screen[2], "  Conversion    ");
+        strcpy(screen[3], "  Calculation   ");
     }
-    else if (target == "base setting"){
-        screen = {
-        "  Base From:    ",
-        "  Base To:      ",
-        "  back          ",
-        "                "
-        };
+    else if (strcmp(target, "base setting") == 0){
+        strcpy(screen[0], "  Base From:    ");
+        strcpy(screen[1], "  Base To:      ");
+        strcpy(screen[2], "  back          ");
+        strcpy(screen[3], "                ");
     }
-    else if (target == "operation setting"){
-        screen = {
-        "  Operation:     ",
-        "  back          ",
-        "                ",
-        "                "
-        };
+    else if (strcmp(target, "operation setting") == 0){
+        strcpy(screen[0], "  Operation:     ");
+        strcpy(screen[1], "  back          ");
+        strcpy(screen[2], "                ");
+        strcpy(screen[3], "                ");
     }
-    else if (target == "conversion"){
-        screen = {
-        "  \"From\" Value: ",
-        "                ",
-        "  \"To\" Value:   ",
-        "                "
-        };
+    else if (strcmp(target, "conversion") == 0){
+        strcpy(screen[0], "  \"From\" Value: ");
+        strcpy(screen[1], "                ");
+        strcpy(screen[2], "  \"To\" Value:   ");
+        strcpy(screen[3], "                ");
     }
-    else if (target == "conversion execute"){
-        screen = {
-        "  Result:       ",
-        "                ",
-        "                ",
-        "  back          "
-        };
+    else if (strcmp(target, "conversion execute") == 0){
+        strcpy(screen[0], "  Result:       ");
+        strcpy(screen[1], "                ");
+        strcpy(screen[2], "                ");
+        strcpy(screen[3], "  back          ");
     }
-    else if (target == "calculation"){
-        screen = {
-        "  Value 1:      ",
-        "                ",
-        "  Value 2:      ",
-        "                "
-        };
+    else if (strcmp(target, "calculation") == 0){
+        strcpy(screen[0], "  Value 1:      ");
+        strcpy(screen[1], "                ");
+        strcpy(screen[2], "  Value 2:      ");
+        strcpy(screen[3], "                ");
     }
-    else if (target == "calculation execute"){
-        screen = {
-        "  Result:       ",
-        "                ",
-        "                ",
-        "  back          "
-        };
+    else if (strcmp(target, "calculation execute") == 0){
+        strcpy(screen[0], "  Result:       ");
+        strcpy(screen[1], "                ");
+        strcpy(screen[2], "                ");
+        strcpy(screen[3], "  back          ");
     }
     
     screenPrint();
@@ -529,14 +518,14 @@ void defaults(){
     fromBase = 10;
     toBase = 10;
     operationType = '+';
-    value1[] = "0"; 
-    value2[] = "0"; 
-    result[] = "0";
+    strcpy(value1, "0");
+    strcpy(value2, "0");
+    strcpy(result, "0");
 
-    currentDegree[] = {0, 0, 0}; 
-    scrollPlacement[] = {1, 1, 1, 1}; 
-    potentInput[] = "0Aa"; 
-    potentBases[] = {0,32};    
+    currentDegree[0] = currentDegree[1] = currentDegree[2] = 0;
+    scrollPlacement[0] = scrollPlacement[1] = scrollPlacement[2] = scrollPlacement[3] = 1;
+    strcpy(potentInput, "0Aa");
+    potentBases[0] = 0; potentBases[1] = 32;   
 
     //reset potentiometers
     for (int pot = 1; pot < 4; pot++){
@@ -575,13 +564,17 @@ void setup() {
     Serial.begin(9600);
 
     //Pin settings
-    myServo.attach(serv);
-    pinMode(piezo, OUTPUT);
+    keyboardMotor.attach(servoLink);
+    pinMode(piezoLink, OUTPUT);
+    pinMode(mainButtonLink, INPUT);
+    pinMode(buttonLink[0], INPUT);
+    pinMode(buttonLink[1], INPUT);
+    pinMode(buttonLink[2], INPUT);
 
     lcd1.begin(16, 2);
     lcd2.begin(16, 2);
-    lcd1.setBacklight(0);
-    lcd2.setBacklight(0);
+    lcd1.setBacklight(HIGH);
+    lcd2.setBacklight(HIGH);
 
     defaults();
 }
@@ -602,15 +595,15 @@ void loop() {
     
     //powered
     if (power){
-        if (currentScreen == "main"){
+        if (strcmp(currentScreen, "main") == 0){
             scrolling(4);
             if (digitalRead(buttonLink[2]) == HIGH){
-                string toScreen[] = {"base setting", "operation setting", "conversion", "calculation"}; 
+                const char* toScreen[] = {"base setting", "operation setting", "conversion", "calculation"}; 
                 screenSwitch(toScreen[scrollPlacement[3]-1]);
             }
         }
 
-        else if (currentScreen == "base setting"){
+        else if (strcmp(currentScreen, "base setting") == 0){
             scrolling(3);
             
             //printing the current base conversions
@@ -655,7 +648,7 @@ void loop() {
             }
         }
 
-        else if (currentScreen == "operation setting"){
+        else if (strcmp(currentScreen, "operation setting") == 0){
             scrolling(2);
 
             //operation printing
@@ -670,23 +663,22 @@ void loop() {
             }
         }
 
-        else if (currentScreen == "conversion"){
+        else if (strcmp(currentScreen, "conversion") == 0){
             scrolling(4);
-            
 
         }
 
-        else if (currentScreen == "conversion execute"){
+        else if (strcmp(currentScreen, "conversion execute") == 0){
             scrolling(20);
 
         }
 
-        else if (currentScreen == "calculation"){
+        else if (strcmp(currentScreen, "calculation") == 0){
             scrolling(4);
             
         }
 
-        else if (currentScreen == "calculation execute"){
+        else if (strcmp(currentScreen, "calculation execute") == 0){
             scrolling(20);
         }
         
