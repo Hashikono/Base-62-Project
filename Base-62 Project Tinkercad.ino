@@ -477,6 +477,7 @@ void screenSwitch(const char* target){
 
 //resets all variables and screens
 void defaults(){
+    keyboardMotor.write(0);
     fromBase = 10;
     toBase = 10;
     operationType = '+';
@@ -611,7 +612,7 @@ void editValue(char* current){
 //NOTE ------ [Initialization] ------
 void setup() {
 
-    Serial.begin(9600);
+    //Serial.begin(9600);
 
     //Pin settings
     keyboardMotor.attach(servoLink);
@@ -662,12 +663,26 @@ void loop() {
 
     //powered
     if (power){
+        //tracks potentiometer changes
         potentChange = 0;
         for (int pot = 1; pot < 4; pot++){
             potentRouting(pot);
         }
         if (potentChange != 0){
             activePot = potentChange;
+        }
+        
+        //dealing with motors:
+        if (mainPressed){
+            if (power == false){
+                power = true;
+                keyboardMotor.write(180);
+                screenSwitch("main");
+            }
+            else {
+                power = false;
+                defaults();
+            }
         }
 
         if (strcmp(currentScreen, "main") == 0){
