@@ -2,8 +2,8 @@
 
 //NOTE ------ [LCD imports/init] ------
 #include <Adafruit_LiquidCrystal.h>
-Adafruit_LiquidCrystal lcd1(7); //Top/Left Display     = 0x27
-Adafruit_LiquidCrystal lcd2(6); //Bottom/Right Display = 0x26
+Adafruit_LiquidCrystal lcd1(0x27);
+Adafruit_LiquidCrystal lcd2(0x26);
 
 
 
