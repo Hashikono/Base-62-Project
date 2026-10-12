@@ -783,7 +783,10 @@ void loop() {
 //TODO - Literally a list
 // * Add the Tinkercad design/link to github README etc.
 //      - Maybe also include pictures of different sections???
-// * make the motor work
+// * Finish the journal
+// * Write the README.md
+// * Transfer/make all of this in the IRL file
+// * print out the manual onto teh side panel
 
 
 //NOTE ------ [Manual] ------
