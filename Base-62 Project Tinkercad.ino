@@ -673,17 +673,7 @@ void loop() {
         }
         
         //dealing with motors:
-        if (mainPressed){
-            if (power == false){
-                power = true;
-                keyboardMotor.write(180);
-                screenSwitch("main");
-            }
-            else {
-                power = false;
-                defaults();
-            }
-        }
+        keyboardMotor.write(180);
 
         if (strcmp(currentScreen, "main") == 0){
             scrolling(4);
@@ -781,6 +771,9 @@ void loop() {
         }
 
         screenPrint();
+    }
+    else {
+        keyboardMotor.write(0);
     }
 
     delay(10);
