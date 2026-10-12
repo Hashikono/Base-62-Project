@@ -2,8 +2,8 @@
 
 //NOTE ------ [LCD imports/init] ------
 #include <Adafruit_LiquidCrystal.h>
-Adafruit_LiquidCrystal lcd1(0); //Top/Left Display
-Adafruit_LiquidCrystal lcd2(0); //Bottom/Right Display
+Adafruit_LiquidCrystal lcd1(0x27); //Top/Left Display
+Adafruit_LiquidCrystal lcd2(0x26); //Bottom/Right Display
 
 
 
@@ -40,6 +40,7 @@ char screen[4][17] = {"****************", "****************", "****************"
 //operation variables
 char currentScreen[24] = "default";
 bool power = false; //tracks turning machine on/off
+bool lastButtonState = LOW;
 int fromBase = 10; //conversion from base setting
 int toBase = 10; //conversion to base setting
 char operationType = '+'; //operation setting
@@ -409,7 +410,7 @@ void potentRouting(int potentNum){
         potentInput[ind] = bookNumbers[idx];
         
         //scrolling
-        for (int i = 0; i < (int)(sizeof(scrollPlacement) /(sizeof(scrollPlacement[0])); i++){
+        for (int i = 0; i < 4; i++){
             scrollPlacement[i] = map(currentDegree[ind], 0, 179, 1, 1+i);
         }
     }
@@ -439,7 +440,7 @@ void potentRouting(int potentNum){
     /*
     main modules:
         - potent1 => inputs 0-9 scrolling / navigation scrolling
-        - potent2 => inputs A-Z scrolling / bases 0-31 scrolling / operations +-*/ scrolling
+        - potent2 => inputs A-Z scrolling / bases 0-31 scrolling / operations +-* / scrolling
         - potent3 => inputs a-z scrolling / bases 32-62 scrolling
         - button1 => calc. & convert enter button
         - button2 => calc. & convert backspace button
@@ -555,6 +556,7 @@ void scrolling(int type){
     else { //regular execution
         screen[scrollPlacement[type-1]-1][0] = '%';
     }
+    screenPrint();
 }
 
 
@@ -573,8 +575,8 @@ void setup() {
 
     lcd1.begin(16, 2);
     lcd2.begin(16, 2);
-    lcd1.setBacklight(HIGH);
-    lcd2.setBacklight(HIGH);
+    lcd1.setBacklight(1);
+    lcd2.setBacklight(1);
 
     defaults();
 }
@@ -584,14 +586,19 @@ void setup() {
 //NOTE - Copy-paste everything in this loop() to the IRL loop()
 void loop() {
     //power toggle
-    if (digitalRead(mainButtonLink) == HIGH && power == false){
-        power = true;
-        screenSwitch("main");
+    bool mainButtonState = digitalRead(mainButtonLink);
+    
+    if (mainButtonState == HIGH && lastButtonState == LOW){
+        if (power == false){
+            power = true;
+            screenSwitch("main");
+        }
+        else {
+            power = false;
+            defaults();
+        }
     }
-    else if (digitalRead(mainButtonLink) == HIGH && power == true){
-        power = false;
-        defaults();
-    }
+    lastButtonState = mainButtonState;
     
     //powered
     if (power){
@@ -682,9 +689,6 @@ void loop() {
             scrolling(20);
         }
         
-
-    } else {
-        defaults();
     }
 
 
@@ -774,7 +778,7 @@ void loop() {
 
     main modules:
         - potent1 => inputs 0-9 scrolling / navigation scrolling
-        - potent2 => inputs A-Z scrolling / bases 0-31 scrolling / operations +-*/ scrolling
+        - potent2 => inputs A-Z scrolling / bases 0-31 scrolling / operations +-* / scrolling
         - potent3 => inputs a-z scrolling / bases 32-62 scrolling
         - button1 => calc. & convert enter button
         - button2 => calc. & convert backspace button
