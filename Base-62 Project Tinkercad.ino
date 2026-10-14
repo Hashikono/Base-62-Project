@@ -1,6 +1,7 @@
 //---------------------- TINKERCAD ----------------------
 
 //NOTE ------ [LCD imports/init] ------
+//REVIEW
 #include <Adafruit_LiquidCrystal.h>
 Adafruit_LiquidCrystal lcd1(7); //Top/Left Display
 Adafruit_LiquidCrystal lcd2(6); //Bottom/Right Display
@@ -348,7 +349,7 @@ bool calculation(const char* oper, char* num1, char* num2, uint8_t fromBase1, ui
 
 //NOTE ------ [Misc. functions] ------
 
-//LCD Printing
+//REVIEW LCD Printing
 void screenPrint(){
     for (int row = 0; row < 4; row++){
         Adafruit_LiquidCrystal& lcd = (row < 2) ? lcd1 : lcd2;
@@ -371,7 +372,7 @@ void screenPrint(){
 
 //Button chime
 void chime(){
-    for (int i = 0; i < 60; i++){
+    for (int i = 0; i < 30; i++){
         digitalWrite(piezoLink, HIGH);
         delayMicroseconds(250);
         digitalWrite(piezoLink, LOW);
@@ -610,6 +611,7 @@ void editValue(char* current){
 
 
 //NOTE ------ [Initialization] ------
+//REVIEW
 void setup() {
 
     //Serial.begin(9600);
