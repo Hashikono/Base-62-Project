@@ -787,8 +787,7 @@ void loop() {
 //      - Maybe also include pictures of different sections???
 // * Finish the journal
 // * Write the README.md
-// * Transfer/make all of this in the IRL file
-// * print out the manual onto teh side panel
+// * print out the manual onto the side panel
 
 
 //NOTE ------ [Manual] ------
