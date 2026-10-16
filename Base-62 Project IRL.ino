@@ -21,6 +21,7 @@ Servo keyboardMotor;
 #define MAX_INPUT_LENGTH 16 //limit to 16 in the LCD
 #define MAX_BITS 64 //binary buffer/temp storage
 #define UNARY_SYM '1'
+#define POTENT_SWITCH_DEGREE 90
 
 
 
@@ -50,6 +51,7 @@ int currentRow = 1; //selected row on a scrolling screen
 char potentInput[4] = {'0', 'A', 'a', '\0'};
 int potentBases[2] = {1, 32};
 int potentChange = 0;
+int potentAnchor[3] = {0, 0, 0};
 int activePot = 1;
 int inputField = 0;
 
@@ -389,7 +391,12 @@ void potentRouting(int potentNum){
     int rawPotentValue = analogRead(potentLink[ind]);
     int newDegree = constrain(map(rawPotentValue, 0, 1023, 0, 179), 0, 179);
 
-    if (newDegree != currentDegree[ind]){
+    if (potentNum == activePot){
+        if (newDegree != currentDegree[ind]){
+            potentChange = potentNum;
+        }
+    }
+    else if (abs(newDegree - potentAnchor[ind]) >= POTENT_SWITCH_DEGREE){
         potentChange = potentNum;
     }
     currentDegree[ind] = newDegree;
@@ -500,6 +507,9 @@ void defaults(){
         potentRouting(pot);
     }
     potentChange = 0;
+    for (int pot = 0; pot < 3; pot++){
+        potentAnchor[pot] = currentDegree[pot];
+    }
 
     screenSwitch("default");
 }
@@ -659,6 +669,10 @@ void loop() {
     if (mainPressed){
         if (power == false){
             power = true;
+            for (int pot = 1; pot < 4; pot++){
+                potentRouting(pot);
+                potentAnchor[pot - 1] = currentDegree[pot - 1];
+            }
             screenSwitch("main");
         }
         else {
@@ -675,6 +689,9 @@ void loop() {
             potentRouting(pot);
         }
         if (potentChange != 0){
+            if (potentChange != activePot){
+                potentAnchor[activePot - 1] = currentDegree[activePot - 1];
+            }
             activePot = potentChange;
         }
         
