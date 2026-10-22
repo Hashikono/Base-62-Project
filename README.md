@@ -6,6 +6,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 
 # Did I regret this (somehow no):
 - Made me grateful of modern computer memory capacity **:l**
+    - Bro this micro-controller has less RAM then modern-calculators for this function
 - Used more geometry in this roject than at any other point in my life...
 - Added onto my collection of absurd project ideas
 - Needed to find reasons to use my school's workshop before I graduated...
@@ -72,7 +73,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 ```
 
 # Notes:
-- You can always reste the system using the side power button
+- You can always reset the system using the side power button
 - The keyboard launches out when the "power" is on
 - the model is parametric, you can edit it on Fusion...
     - Default wall-width : 0.125 in
@@ -91,14 +92,32 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <p align="left">
     <img src="./images/Base 62 Parametric Model.png" width="200" height="200" alt="hello there">
 </p>
+- Mind the origin still appearing (I forgot to turn it off on the screw component and rendering is killing my computer)
+
 <p align="left">
     <img src="./images/inner system.png" width="200" height="200" alt="hello there">
 </p>
 
 ### IRL build
 <p align="left">
-    <img src="./images/pending.png" width="200" height="200" alt="hello there">
+    <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="200" height="200" alt="hello there">
 </p>
+> Circuit
+
+<p align="left">
+    <img src="./images/pending.pngg" width="200" height="200" alt="hello there">
+</p>
+> Top "screen" portion
+
+<p align="left">
+    <img src="./images/pending.pngg" width="200" height="200" alt="hello there">
+</p>
+> Bottom "Keyboard" portion
+
+<p align="left">
+    <img src="./images/pending.pngg" width="200" height="200" alt="hello there">
+</p>
+> Full Build
 
 ### Exploded view
 <p align="left">
@@ -106,20 +125,44 @@ Always wanted to make some sort of computer with the arduino and found that no o
 </p>
 > I suggest looking at the 3D model to look at the placement of parts
 > you will most likely need to wood-glue the frame together (just don't wood glue the lid of the keyboardEnclosure module)
-
+- You can glue everything attached to it, just it's recommended not to glue the lid (or your arduino will never come out...)
+- <p align="left">
+    <img src="./images/スクリーンショット 2026-10-21 231604.png" width="200" height="200" alt="hello there">
+    </p>
 
 # Parts list:
 - I2C LCDs (x2)
-- Breadboards (x2)
+- Half-sized Breadboards (x2)
 - Arduino UNO R3 [preferably R4] (x1)
 - CA9 Potentiometers [the Arduino type] (x3)
 - Standard push buttons (x4)
 - Generic 180 degree Servo motor (x1)
-- A whole lot of Male-Male and Male-Female Jumper wires [buy a box and make your own wires]
+- A piezo (x1)
+- A whole lot of Male-Male and Male-Female Jumper wires
+    - Something like this [here](4)
+    - The link is NOT AFFILIATED ```-_-```
 - 3D printed parts [here](2)
 - Laser cut frame [here](3)
 
-# Links
+# Model credits:
+> Thank you to these wonderful people for open-sourcing standardized part models, some of which were annoyingly difficult to find...
+- Arduino UNO R3 [here](5)
+- Half-sized Breadbord [here](6)
+- 1602A I2C LCD [here](7)
+- CA9 Potentiometer [here](8)
+- Standard Push Button [here](9)
+- Micro Servo Motor 9g [here](10)
+- PT-1540P Piezo buzzer [here](11)
+
+
 [1]: https://www.tinkercad.com/things/6n480BIajVO-base-62-project
 [2]: https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/3D%20prints%20-%20STL
 [3]: https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files
+[4]: https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/
+[5]: https://grabcad.com/library/arduino-uno-r3-19
+[6]: https://grabcad.com/library/half-size-breadboard-1
+[7]: https://grabcad.com/library/1602a-i2c-lcd-display-module-for-arduino-1
+[8]: https://grabcad.com/library/ardunio-potentiometer-ca9-cermet-acp-1
+[9]: https://grabcad.com/library/push-button-64
+[10]: https://grabcad.com/library/micro-servo-9g-7
+[11]: https://grabcad.com/library/pt-1540p-piezo-buzzer-1
