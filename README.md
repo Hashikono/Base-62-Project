@@ -1,12 +1,14 @@
 # Base-62-Project
-An Arduino calculator/converter for arbitrary bases from 1-62 using an oversimplified keyboard and very slow LCDs...
+An Arduino calculator/converter for arbitrary bases from 1-62 using an oversimplified keyboard and 2 kb of RAM :<
 
 # Why did I make this:
 Always wanted to make some sort of computer with the arduino and found that no one has tried to optimize the universal base converter into an incredibly weak system, much less even make a clauclator out of it...
 
-# Did I regret this:
-Made me grateful of modern computer memory capacity **:l**
-2 kb is painful to work with
+# Did I regret this (somehow no):
+- Made me grateful of modern computer memory capacity **:l**
+- Used more geometry in this roject than at any other point in my life...
+- Added onto my collection of absurd project ideas
+- Needed to find reasons to use my school's workshop before I graduated...
 
 # How to read the manual/operate:
 ```
@@ -72,27 +74,35 @@ Made me grateful of modern computer memory capacity **:l**
 # Notes:
 - You can always reste the system using the side power button
 - The keyboard launches out when the "power" is on
+- the model is parametric, you can edit it on Fusion...
+    - Default wall-width : 0.125 in
+    - Default wood-fitting tolerance : 0.02 in
+- Scroll down for construction instructions
 
 # Pictures!
 
 ### Tinkercad:
 <p align="left">
-    <img src="./images/スクリーンショット 2026-09-18 234531.png" width="200" height="200" alt="hello there">
+    <img src="./images/tinkercad.png" width="200" height="200" alt="hello there">
 </p>
+[here](https://www.tinkercad.com/things/6n480BIajVO-base-62-project)
 
 ### Final CAD model
 <p align="left">
-    <img src="./images/スクリーンショット 2026-09-18 234531.png" width="200" height="200" alt="hello there">
+    <img src="./images/Base 62 Parametric Model.png" width="200" height="200" alt="hello there">
+</p>
+<p align="left">
+    <img src="./images/inner system.png" width="200" height="200" alt="hello there">
 </p>
 
 ### IRL build
 <p align="left">
-    <img src="./images/スクリーンショット 2026-09-18 234531.png" width="200" height="200" alt="hello there">
+    <img src="./images/pending.png" width="200" height="200" alt="hello there">
 </p>
 
 ### Exploded view
 <p align="left">
-    <img src="./images/スクリーンショット 2026-09-18 234531.png" width="200" height="200" alt="hello there">
+    <img src="./images/model.gif" width="200" height="200" alt="hello there">
 </p>
 > I suggest looking at the 3D model to look at the placement of parts
 > you will most likely need to wood-glue the frame together (just don't wood glue the lid of the keyboardEnclosure module)
