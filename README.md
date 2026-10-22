@@ -100,25 +100,25 @@ Always wanted to make some sort of computer with the arduino and found that no o
 </p>
 
 ### IRL build
-> Circuit
-<p align="left">
-    <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="200" height="200" alt="In real life circuit demonstration">
-</p>
-> Top "screen" portion
+-  Circuit
+    - <p align="left">
+        <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="200" height="200" alt="In real life circuit demonstration">
+        </p>
+        
+-  Top "screen" portion
+    - <p align="left">
+        <img src="./images/pending.png" width="200" height="200" alt="[pending]">
+        </p>
 
-<p align="left">
-    <img src="./images/pending.png" width="200" height="200" alt="[pending]">
-</p>
-> Bottom "Keyboard" portion
+- Bottom "Keyboard" portion
+    - <p align="left">
+        <img src="./images/pending.png" width="200" height="200" alt="[pending]">
+        </p>
 
-<p align="left">
-    <img src="./images/pending.png" width="200" height="200" alt="[pending]">
-</p>
-> Full Build
-
-<p align="left">
-    <img src="./images/pending.png" width="200" height="200" alt="[pending]">
-</p>
+-  Full Build
+    - <p align="left">
+        <img src="./images/pending.png" width="200" height="200" alt="[pending]">
+        </p>
 
 
 ### Exploded view
