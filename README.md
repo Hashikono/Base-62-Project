@@ -129,7 +129,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 ### Notes Pt.2:
 > I suggest looking at the 3D model to look at the placement of parts
 > you will most likely need to wood-glue the frame together (just don't wood glue the lid of the keyboardEnclosure module)
-- You can glue everything attached to it, just it's recommended not to glue the lid (or your arduino will never come out...)
+>> You can glue everything attached to it, just it's recommended not to glue the lid (or your arduino will never come out...)
 - <p align="left">
     <img src="./images/スクリーンショット 2026-10-21 231604.png" width="200" height="200" alt="Circled part of what you DON'T want to glue">
     </p>
