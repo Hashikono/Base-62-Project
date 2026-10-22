@@ -79,6 +79,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
     - Default wall-width : 0.125 in
     - Default wood-fitting tolerance : 0.02 in
 - Scroll down for construction instructions
+- Like all calculators, there is a limit to how big of a number it can process (long int)
 
 # Pictures!
 
@@ -86,13 +87,13 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <p align="left">
     <img src="./images/tinkercad.png" width="200" height="200" alt="hello there">
 </p>
-- <a href="https://www.tinkercad.com/things/6n480BIajVO-base-62-project" target="_blank">here</a>
+> <a href="https://www.tinkercad.com/things/6n480BIajVO-base-62-project" target="_blank">here</a>
 
 ### Final CAD model
 <p align="left">
     <img src="./images/Base 62 Parametric Model.png" width="200" height="200" alt="hello there">
 </p>
-- Mind the origin still appearing (I forgot to turn it off on the screw component and rendering is killing my computer)
+> Mind the origin still appearing (I forgot to turn it off on the screw component and rendering is killing my computer)
 
 <p align="left">
     <img src="./images/inner system.png" width="200" height="200" alt="hello there">
