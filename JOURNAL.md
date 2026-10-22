@@ -206,6 +206,7 @@
         - I don't think anyone has an old MK-4 Prusa Printer that's compatible with the slice file anymore so I'll leave it as is
 24. VS Code 
     - May have spent more than 4 hours but I lost track of times atp
+        - Due to markdown, I can't put 24-28 as the numberdd bullet point...
     - Spent about 5-10 minutes rendering the model and porting it to Github
     - This README/JOURNAL
     - Screenshotting and adding instructions to everything
@@ -213,6 +214,7 @@
     - Fixing broken links and weird markdown rendering in Github
     - Fixing apparently all the alt texts and weird markdown stuff that was happening with lists in the JOURNAL
 25. IRL
+    - technically this is hour 29 ...
     - 3D printed all parts (pins, component bracing stuff, etc.)
     <p align="left">
     <img src="./images/pending.png" width="300" height="300" alt="[pending]">
