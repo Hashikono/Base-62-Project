@@ -85,7 +85,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <p align="left">
     <img src="./images/tinkercad.png" width="200" height="200" alt="hello there">
 </p>
-[here](https://www.tinkercad.com/things/6n480BIajVO-base-62-project)
+[here](1)
 
 ### Final CAD model
 <p align="left">
@@ -116,5 +116,10 @@ Always wanted to make some sort of computer with the arduino and found that no o
 - Standard push buttons (x4)
 - Generic 180 degree Servo motor (x1)
 - A whole lot of Male-Male and Male-Female Jumper wires [buy a box and make your own wires]
-- 3D printed parts [here](https://github.com/hashikono/base-62-project)
-- Laser cut frame [here](https://github.com/hashikono/base-62-project)
+- 3D printed parts [here](2)
+- Laser cut frame [here](3)
+
+# Links
+[1]: https://www.tinkercad.com/things/6n480BIajVO-base-62-project
+[2]: https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/3D%20prints%20-%20STL
+[3]: https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files
