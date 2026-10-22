@@ -90,14 +90,14 @@ Always wanted to make some sort of computer with the arduino and found that no o
 > <a href="https://www.tinkercad.com/things/6n480BIajVO-base-62-project" target="_blank">here</a>
 
 ### Final CAD model
-<p align="left">
-    <img src="./images/Base 62 Parametric Model.png" width="300" height="300" alt="Base-62 rendered model">
-</p>
-> Rendering is killing my computer...
-
-<p align="left">
-    <img src="./images/inner system.png" width="300" height="300" alt="Arduino components (without enclosure)">
-</p>
+- Rendering is killing my computer...
+    - <p align="left">
+        <img src="./images/Base 62 Parametric Model.png" width="300" height="300" alt="Base-62 rendered model">
+        </p>
+- Interior circuit
+    - <p align="left">
+        <img src="./images/inner system.png" width="300" height="300" alt="Arduino components (without enclosure)">
+        </p>
 
 ### IRL build
 -  Circuit
