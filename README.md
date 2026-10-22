@@ -125,6 +125,8 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <p align="left">
     <img src="./images/model.gif" width="200" height="200" alt="Exploded GIF of the model">
 </p>
+
+### Notes Pt.2:
 > I suggest looking at the 3D model to look at the placement of parts
 > you will most likely need to wood-glue the frame together (just don't wood glue the lid of the keyboardEnclosure module)
 - You can glue everything attached to it, just it's recommended not to glue the lid (or your arduino will never come out...)
