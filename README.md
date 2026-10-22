@@ -85,45 +85,45 @@ Always wanted to make some sort of computer with the arduino and found that no o
 
 ### Tinkercad:
 <p align="left">
-    <img src="./images/tinkercad.png" width="200" height="200" alt="Tinkercad circuit">
+    <img src="./images/tinkercad.png" width="300" height="300" alt="Tinkercad circuit">
 </p>
 > <a href="https://www.tinkercad.com/things/6n480BIajVO-base-62-project" target="_blank">here</a>
 
 ### Final CAD model
 <p align="left">
-    <img src="./images/Base 62 Parametric Model.png" width="200" height="200" alt="Base-62 rendered model">
+    <img src="./images/Base 62 Parametric Model.png" width="300" height="300" alt="Base-62 rendered model">
 </p>
-> Mind the origin still appearing (I forgot to turn it off on the screw component and rendering is killing my computer)
+> Rendering is killing my computer...
 
 <p align="left">
-    <img src="./images/inner system.png" width="200" height="200" alt="Arduino components (without enclosure)">
+    <img src="./images/inner system.png" width="300" height="300" alt="Arduino components (without enclosure)">
 </p>
 
 ### IRL build
 -  Circuit
     - <p align="left">
-        <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="200" height="200" alt="In real life circuit demonstration">
+        <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="300" height="300" alt="In real life circuit demonstration">
         </p>
         
 -  Top "screen" portion
     - <p align="left">
-        <img src="./images/pending.png" width="200" height="200" alt="[pending]">
+        <img src="./images/pending.png" width="300" height="300" alt="[pending]">
         </p>
 
 - Bottom "Keyboard" portion
     - <p align="left">
-        <img src="./images/pending.png" width="200" height="200" alt="[pending]">
+        <img src="./images/pending.png" width="300" height="300" alt="[pending]">
         </p>
 
 -  Full Build
     - <p align="left">
-        <img src="./images/pending.png" width="200" height="200" alt="[pending]">
+        <img src="./images/pending.png" width="300" height="300" alt="[pending]">
         </p>
 
 
 ### Exploded view
 <p align="left">
-    <img src="./images/model.gif" width="200" height="200" alt="Exploded GIF of the model">
+    <img src="./images/model.gif" width="300" height="300" alt="Exploded GIF of the model">
 </p>
 
 ### Notes Pt.2:
@@ -131,7 +131,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 > you will most likely need to wood-glue the frame together (just don't wood glue the lid of the keyboardEnclosure module)
 >> You can glue everything attached to it, just it's recommended not to glue the lid (or your arduino will never come out...)
 <p align="left">
-    <img src="./images/スクリーンショット 2026-10-21 231604.png" width="200" height="200" alt="Circled part of what you DON'T want to glue">
+    <img src="./images/スクリーンショット 2026-10-21 231604.png" width="300" height="300" alt="Circled part of what you DON'T want to glue">
     </p>
 
 # Parts list:
