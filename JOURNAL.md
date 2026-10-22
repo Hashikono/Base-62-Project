@@ -232,4 +232,4 @@
 
 
 #### arivvid27:
-> However long he spent making the original simplified prototype for the conversion/calculation functiosn
+> However long he spent making the original simplified prototype for the conversion/calculation functions
