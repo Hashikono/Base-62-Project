@@ -86,7 +86,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <p align="left">
     <img src="./images/tinkercad.png" width="200" height="200" alt="hello there">
 </p>
-[here](1)
+- <a href="https://www.tinkercad.com/things/6n480BIajVO-base-62-project" target="_blank">here</a>
 
 ### Final CAD model
 <p align="left">
@@ -105,17 +105,17 @@ Always wanted to make some sort of computer with the arduino and found that no o
 > Circuit
 
 <p align="left">
-    <img src="./images/pending.pngg" width="200" height="200" alt="hello there">
+    <img src="./images/pending.png" width="200" height="200" alt="hello there">
 </p>
 > Top "screen" portion
 
 <p align="left">
-    <img src="./images/pending.pngg" width="200" height="200" alt="hello there">
+    <img src="./images/pending.png" width="200" height="200" alt="hello there">
 </p>
 > Bottom "Keyboard" portion
 
 <p align="left">
-    <img src="./images/pending.pngg" width="200" height="200" alt="hello there">
+    <img src="./images/pending.png" width="200" height="200" alt="hello there">
 </p>
 > Full Build
 
@@ -139,30 +139,17 @@ Always wanted to make some sort of computer with the arduino and found that no o
 - Generic 180 degree Servo motor (x1)
 - A piezo (x1)
 - A whole lot of Male-Male and Male-Female Jumper wires
-    - Something like this [here](4)
+    - <a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/" target="_blank">Something like this</a>
     - The link is NOT AFFILIATED ```-_-```
-- 3D printed parts [here](2)
-- Laser cut frame [here](3)
+- <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/3D%20prints%20-%20STL" target="_blank">3D printed parts</a>
+- <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files" target="_blank">Laser cut frame</a>
 
 # Model credits:
 > Thank you to these wonderful people for open-sourcing standardized part models, some of which were annoyingly difficult to find...
-- Arduino UNO R3 [here](5)
-- Half-sized Breadbord [here](6)
-- 1602A I2C LCD [here](7)
-- CA9 Potentiometer [here](8)
-- Standard Push Button [here](9)
-- Micro Servo Motor 9g [here](10)
-- PT-1540P Piezo buzzer [here](11)
-
-
-[1]: https://www.tinkercad.com/things/6n480BIajVO-base-62-project
-[2]: https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/3D%20prints%20-%20STL
-[3]: https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files
-[4]: https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/
-[5]: https://grabcad.com/library/arduino-uno-r3-19
-[6]: https://grabcad.com/library/half-size-breadboard-1
-[7]: https://grabcad.com/library/1602a-i2c-lcd-display-module-for-arduino-1
-[8]: https://grabcad.com/library/ardunio-potentiometer-ca9-cermet-acp-1
-[9]: https://grabcad.com/library/push-button-64
-[10]: https://grabcad.com/library/micro-servo-9g-7
-[11]: https://grabcad.com/library/pt-1540p-piezo-buzzer-1
+- <a href="https://grabcad.com/library/arduino-uno-r3-19" target="_blank">Arduino UNO R3</a>
+- <a href="https://grabcad.com/library/half-size-breadboard-1" target="_blank">Half-sized Breadboard</a>
+- <a href="https://grabcad.com/library/1602a-i2c-lcd-display-module-for-arduino-1" target="_blank">1602A I2C LCD</a>
+- <a href="https://grabcad.com/library/ardunio-potentiometer-ca9-cermet-acp-1" target="_blank">CA9 Potentiometer</a>
+- <a href="https://grabcad.com/library/push-button-64" target="_blank">Standard Push Button</a>
+- <a href="https://grabcad.com/library/micro-servo-9g-7" target="_blank">Micro Servo Motor 9g</a>
+- <a href="https://grabcad.com/library/pt-1540p-piezo-buzzer-1" target="_blank">PT-1540P Piezo Buzzer</a>
