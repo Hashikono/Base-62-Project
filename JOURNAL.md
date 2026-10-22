@@ -210,7 +210,7 @@
     - Spent about 5-10 minutes rendering the model and porting it to Github
     - This README/JOURNAL
     - Screenshotting and adding instructions to everything
-    - Porting the models to the Github
+    - Porting the models to the Github repository (so that you can actually make it...)
     - Fixing broken links and weird markdown rendering in Github
     - Fixing apparently all the alt texts and weird markdown stuff that was happening with lists in the JOURNAL
 25. IRL
