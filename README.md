@@ -125,6 +125,8 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <p align="left">
     <img src="./images/model.gif" width="300" height="300" alt="Exploded GIF of the model">
 </p>
+<a href="https://github.com/Hashikono/Base-62-Project/blob/main/Fusion%20Model/Full%20model/note.txt" target="_blank">Ooh, what could be here...</a>
+
 
 ### Notes Pt.2:
 > I suggest looking at the 3D model to look at the placement of parts
