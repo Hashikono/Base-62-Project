@@ -213,8 +213,25 @@
     - Porting the models to the Github repository (so that you can actually make it...)
     - Fixing broken links and weird markdown rendering in Github
     - Fixing apparently all the alt texts and weird markdown stuff that was happening with lists in the JOURNAL
+25. Fusion
+    - I think I only spend like half an hour on this but whatever (I also started lapse late 'cause I was locked in)
+    - Tried to revamp the exploded view as the old one kinda seemed clunky...
+    - This new one shows the parts a lot more elegantly (can be used as visual instructions as assembly drawings crash my computer)
+        - I did try for 5 minutes to make an assembly drawing...yeah that isn't gonna work with my GPU
+    - original:
+        -  <p align="left">
+        <img src="./images/model original.gif width="300" height="300" alt="The original video/gif">
+        </p>
+    - newly made:
+        -  <p align="left">
+        <img src="./images/model.gif width="300" height="300" alt="The NEW video/gif">
+        </p>
+        - BRUH THE CONVERSION SHRUNK IT!!! ```:<```
 25. IRL
-    - technically this is hour 29 ...
+    - technically this is hour 29??? ...
+    - Couldn't lapse at the workshop
+        - Yes to clarify I am using my school's workshop to make this passion project...
+        - Fraud squad please don't kill me
     - 3D printed all parts (pins, component bracing stuff, etc.)
     - <p align="left">
     <img src="./images/pending.png" width="300" height="300" alt="[pending]">
