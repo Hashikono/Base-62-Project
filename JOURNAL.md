@@ -220,13 +220,19 @@
         - I did try for 5 minutes to make an assembly drawing...yeah that isn't gonna work with my GPU
     - original:
         -  <p align="left">
-        <img src="./images/model original.gif width="300" height="300" alt="The original video/gif">
+        <img src="./images/model original.gif" width="300" height="300" alt="The original video/gif">
         </p>
     - newly made:
         -  <p align="left">
-        <img src="./images/model.gif width="300" height="300" alt="The NEW video/gif">
+        <img src="./images/model NEW.gif" width="300" height="300" alt="The NEW video/gif">
         </p>
         - BRUH THE CONVERSION SHRUNK IT!!! ```:<```
+            - yeah I'ma re-export it
+    - FINAL neww made:
+        -  <p align="left">
+        <img src="./images/model.gif" width="300" height="300" alt="The NEW FINAL NEW video/gif">
+        </p>
+        - yayy
 25. IRL
     - technically this is hour 29??? ...
     - Couldn't lapse at the workshop
