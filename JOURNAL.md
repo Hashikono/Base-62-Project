@@ -12,7 +12,7 @@
     - Established basic imports for every theoretical module used
     - Made a to-do list to track everything in the code ('cause I'm lazy to port it somewhere else)
     - Made the unprogrammed tinker-cad design off camera 'cause I forgot to record my lapse session...
-    - <p align="left">
+    <p align="left">
     <img src="./images/tinkercad.png" width="300" height="300" alt="Rough Draft - Home view">
     </p>
 2. Fusion
@@ -27,19 +27,19 @@
     - Speed-runned learning how to use markdown
     - Setup the journal that you're reading right now
     - Mock model images
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-18 1.png" width="300" height="300" alt="Rough Draft - Home view">
     </p>
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-18 2.png" width="300" height="300" alt="Rough Draft - Front view">
     </p>
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-18 3.png" width="300" height="300" alt="Rough Draft - Side view">
     </p>
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-18 4.png" width="300" height="300" alt="Rough Draft - Inside view">
     </p>
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-18 5.png" width="300" height="300" alt="Rough Draft - Functional view">
     </p>
 
@@ -48,18 +48,18 @@
     - Was trying to import stuff from Grab CAD etc.
     - Created the initial walls for the platform
     - Parameter tweaking for the size of the slots to piece the wood togetehr after
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-20 1.png" width="300" height="300" alt="Cleaned - Initial placement">
     </p>
 5. Fusion
     - Imported a servo motor to use for the keyboard dispenser (it moves 180 degrees which is perfect)
     - Created the servo horn brace (connects to the breadboard keyboard)
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-20 2.png" width="300" height="300" alt="Motor placement tweaking">
     </p>
     - configuring rotational alignment to not scrape against the wood (was rotating it wayy too many times)
     - Made a custom horn extension to connect with the pin that moves the keyboard
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-09-20 3.png" width="300" height="300" alt="Servo Motor custom horn extension">
     </p>
     - Added initial mechanism fo rolling-out keyboard (breadbaord latch, etc.)
@@ -130,7 +130,7 @@
     - Finalized the program (cleaned up some stuff)
     - Fixed the to-do list and tried to recreate IRL
     - Quickly added noise reduction for potentiometers (during testing the noise kept making certain potentiometers constantly update over and disabling some of the keyboard)
-    - <p align="left">
+    <p align="left">
     <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="300" height="300" alt="In real life circuit demonstration">
     </p>
 19. Fusion
@@ -138,24 +138,24 @@
     - Finalized the peg-movement thing that attaches to the servo motor
     - Used a single-horned ending for the servo motor to save on space
     - Added tolerance between the 3D printed parts to allow for gravity to keep the "keyboard" downn (the pins)
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 1.png" width="300" height="300" alt="Pin view for motor-keyboard system">
     </p>
     - Added bracers to the arduino to keep it in place
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 11.png" width="300" height="300" alt="Arduino bracer to keep it in place">
     </p>
     - Began filling up the remainder of the frames for the keyboard enclosure
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 2.png" width="300" height="300" alt="Motor keyboard system full">
     </p>
 20. Fusion
     - Finished the keyboard container of the box (final top frame has an area for the cables to pass through)
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 3.png" width="300" height="300" alt="Keyboard container top view">
     </p>
     - Added anchors to the top to give space/connection to the screen/monitor section
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 4.png" width="300" height="300" alt="Screen enclosure anchors">
     </p>
     - Finalized the base of the screen portion of the model
@@ -163,42 +163,42 @@
 21. Fusion
     - Added holes to the side panels of the keyboard enclosure to allow for the servo motor cable to pass through
     - Added the LCD placement and carving into the LCD panel
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 5.png" width="300" height="300" alt="LCD panel">
     </p>
     - Finished the side panels of the "screen enclosure" and added a flappable lid
     - the flappable lid genuinely took more geometry than necessary
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 6.png" width="300" height="300" alt="Screen enclosure lid">
     </p>
 22. Fusion
     - Looked for some buttons and potentiometers (the arduino specifci potentiometers took WAYY too long to find)
     - Placed the buttons in their positions on the breadboard
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 7.png" width="300" height="300" alt="Circuit view with buttons">
     </p>
     - Added a hole on the side of one of the keyboard enclosure panels to act as the one/off button
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 8.png" width="300" height="300" alt="Power button on right panel">
     </p>
     - Had to quite literally re-assemble the potentiometer myself because the assemly file was broken...
-    - <p align="left">
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 9.png" width="300" height="300" alt="Disassembled view of the potentiometer">
     </p>
     - Placed the potentiometers and an additional piezo accordingly to the breadboards
-    - made custom potentioemter knobs to accomodate the size of the keyboard enclosure
-    - <p align="left">
+    - made custom potentiometer knobs to accomodate the size of the keyboard enclosure
+    <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 10.png" width="300" height="300" alt="Custom shorted potentioemeter knob">
     </p>
 23. Fusion
     - Added tolerance to the frames for easy attachments
         - I do NOT want to sand 50+ attachement locations due to poor wood quality
-        - <p align="left">
+        <p align="left">
             <img src="./images/スクリーンショット 2026-10-20 12.png" width="300" height="300" alt="Tolerance example on a triangular panel">
             </p>
     - Created the exploded view GIF (maybe watching this in reverse would help with assembly)
         - Also to show how many absurd parts this thing annoyingly took
-        - <p align="left">
+        <p align="left">
             <img src="./images/スクリーンショット 2026-10-20 13.png" width="300" height="300" alt="Exploded view creation & editting">
             </p>
     - Extracting sketches for laser cutting / porting into github
@@ -206,7 +206,7 @@
         - I don't think anyone has an old MK-4 Prusa Printer that's compatible with the slice file anymore so I'll leave it as is
 24. VS Code 
     - May have spent more than 4 hours but I lost track of times atp
-        - Due to markdown, I can't put 24-28 as the numberdd bullet point...
+        - Due to markdown, I can't put 24-28 as the numbered bullet point...
     - Spent about 5-10 minutes rendering the model and porting it to Github
     - This README/JOURNAL
     - Screenshotting and adding instructions to everything
@@ -226,7 +226,7 @@
         -  <p align="left">
         <img src="./images/model NEW.gif" width="300" height="300" alt="The NEW video/gif">
         </p>
-        - BRUH THE CONVERSION SHRUNK IT!!! ```:<```
+        - BRUH THE CONVERSION SHRUNK IT ```:<```
             - yeah I'ma re-export it
     - FINAL neww made:
         -  <p align="left">
@@ -246,20 +246,20 @@
     - 3D printed all parts (pins, component bracing stuff, etc.)
     - laser cutting the frames
         - Gotta love that smell of burnt wood ```:>```
-        - <p align="left">
+        <p align="left">
         <img src="./images/IMG_20261030_003222792_HDR.jpg" width="300" height="300" alt="Laser cut frame (initial placement)">
         </p>
     - Assembling the computer/calculator/whatever you will call this thing
-    - <p align="left">
+    <p align="left">
     <img src="./images/IMG_20261030_015234513_HDR.jpg" width="300" height="300" alt="Beginning to (re)assemble the internal circuit">
     </p>
-    - <p align="left">
-    <img src="./images/IMG_20261030_015232035_HDR.jpg" width="300" height="300" alt="Beginning to (re)assemble the internal circuit">
+    <p align="left">
+    <img src="./images/IMG_20261030_015234513_HDR.jpg" width="300" height="300" alt="Beginning to (re)assemble the internal circuit">
     </p>
-    - <p align="left">
+    <p align="left">
     <img src="./images/IMG_20261030_021416543_HDR.jpg" width="300" height="300" alt="Signs of life...somehow working">
     </p>
-    - <p align="left">
+    <p align="left">
     <img src="./images/IMG_20261030_021421128_HDR.jpg" width="300" height="300" alt="the messy workspace">
     </p>
 
@@ -277,7 +277,7 @@
         - Most of the flagship parts had incorrect measurements...
         - The potentiometer knobs had to be widened 'cause the original diameter was 2 times too small
             - editting this made me realize that parametric designs have the annoyance of "everything breaks whne you mess around with the timeline"
-            - <p align="left">
+            <p align="left">
             <img src="./images\スクリーンショット 2026-11-07 220115.png" width="300" height="300" alt="Editted potentiometer knobs">
             </p>
         - Fixed the servo motor horn latch 'cause I forgot every manufacturer likes to make their own proprietary one
@@ -286,19 +286,19 @@
             - Don't ask me why it wasn't the same before
         - The servo motor bracer now attaches from the side
             - 'cause my dumb ahh, didn't realize that there was absolutely no way to insert it irl
-            - <p align="left">
+            <p align="left">
             <img src="./images/スクリーンショット 2026-11-07 220039.png" width="300" height="300" alt="editted servo motor bracer">
             </p>
         - Breadboard holder-gripper-thingy had the most edits
             - First, The sticker underneath every breadboard actually serves a purpose for once, it is now a cushion inside the latch (which I also had to increase in scale + tolerance) so that I can put an arbitrary amount of tolerance and everything should still be fine...
             - Reinforced the pin connector with a fillet because when I first printed it, the literal slot to the pin just snapped (it was basically hanging on a thread)
-        - <p align="left">
+        <p align="left">
         <img src="./images/スクリーンショット 2026-11-07 220008.png" width="300" height="300" alt="Keyboard launching system">
         </p>
-        - <p align="left">
+        <p align="left">
         <img src="./images/スクリーンショット 2026-11-07 220019.png" width="300" height="300" alt="Keyboard launching system (pin system only)">
         </p>
-        - <p align="left">
+        <p align="left">
         <img src="./images/スクリーンショット 2026-11-07 220227.png" width="300" height="300" alt="supposedly finished interior (circuits)">
         </p>
         - Off camera wood gluing at the workshop ('cause I barely have any at home)
