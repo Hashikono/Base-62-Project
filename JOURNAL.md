@@ -227,7 +227,7 @@
         <img src="./images/model NEW.gif" width="300" height="300" alt="The NEW video/gif">
         </p>
         - BRUH THE CONVERSION SHRUNK IT ```:<```
-            - yeah I'ma re-export it
+        - yeah I'ma re-export it
     - FINAL neww made:
         -  <p align="left">
         <img src="./images/model.gif" width="300" height="300" alt="The NEW FINAL NEW video/gif">
