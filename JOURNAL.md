@@ -235,24 +235,77 @@
         - yayy
 25. IRL
     - technically this is hour 29??? ...
+    - Fixed the sketches for the front screen and left keyboard panels
+        - The tolerance wasn't enough apparently for the LCDs ```-_-```
+        - Left panel nearly broke my servo motor's cable 'cause of the force I had to use to squeeze it through
+        - My actual picture of the final drawing will have a sawed out hole to insert the cable more elegantly
+            - try cutting wood with an exacto knife
     - Couldn't lapse at the workshop
         - Yes to clarify I am using my school's workshop to make this passion project...
-        - Fraud squad please don't kill me
+        - FS please don't kill me
     - 3D printed all parts (pins, component bracing stuff, etc.)
-    - <p align="left">
-    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
-    </p>
     - laser cutting the frames
         - Gotta love that smell of burnt wood ```:>```
         - <p align="left">
-        <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+        <img src="./images/IMG_20261030_003222792_HDR.jpg" width="300" height="300" alt="Laser cut frame (initial placement)">
         </p>
     - Assembling the computer/calculator/whatever you will call this thing
     - <p align="left">
-    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+    <img src="./images/IMG_20261030_015234513_HDR.jpg" width="300" height="300" alt="Beginning to (re)assemble the internal circuit">
+    </p>
+    - <p align="left">
+    <img src="./images/IMG_20261030_015232035_HDR.jpg" width="300" height="300" alt="Beginning to (re)assemble the internal circuit">
+    </p>
+    - <p align="left">
+    <img src="./images/IMG_20261030_021416543_HDR.jpg" width="300" height="300" alt="Signs of life...somehow working">
+    </p>
+    - <p align="left">
+    <img src="./images/IMG_20261030_021421128_HDR.jpg" width="300" height="300" alt="the messy workspace">
     </p>
 
+    - Video Demo <a href="https://drive.google.com/file/d/1PXX1xwDs2nfNQW8c9PEKmnLDRVlhruzG/view?usp=sharing" target="_blank">here</a>
+
+26. Fusion | VS Code (long journal)
+    - technically hours 30, 31, and 32?
+        - This took awhile due to constant remeasurements
+        - I love my starrett digital caliper, dial calipers make me go insane
+    - Fixed the laser cut sketches to match the original design more
+        - Was too lazy to add the triangle originally for the LCD screen panel
+        - Added the sawed out cable hole in to the design (very arbitrarily) so that the next person doesn't go breaking their servo motor
+    - Fixed the following 3D models (basically all of them)
+        - Arduino uno bracer wasn't extended enough and the arduino would literally dig itself into the box when the power cable was attempted to be used
+        - Most of the flagship parts had incorrect measurements...
+        - The potentiometer knobs had to be widened 'cause the original diameter was 2 times too small
+            - editting this made me realize that parametric designs have the annoyance of "everything breaks whne you mess around with the timeline"
+            - <p align="left">
+            <img src="./images\スクリーンショット 2026-11-07 220115.png" width="300" height="300" alt="Editted potentiometer knobs">
+            </p>
+        - Fixed the servo motor horn latch 'cause I forgot every manufacturer likes to make their own proprietary one
+            - the new one should fit most single horned setups (I wonder if I added too much tolerance)
+        - The Pin, pin ring, servo motor latch pin insert were all editted to accomodate a set diameter of 3 mm
+            - Don't ask me why it wasn't the same before
+        - The servo motor bracer now attaches from the side
+            - 'cause my dumb ahh, didn't realize that there was absolutely no way to insert it irl
+            - <p align="left">
+            <img src="./images/スクリーンショット 2026-11-07 220039.png" width="300" height="300" alt="editted servo motor bracer">
+            </p>
+        - Breadboard holder-gripper-thingy had the most edits
+            - First, The sticker underneath every breadboard actually serves a purpose for once, it is now a cushion inside the latch (which I also had to increase in scale + tolerance) so that I can put an arbitrary amount of tolerance and everything should still be fine...
+            - Reinforced the pin connector with a fillet because when I first printed it, the literal slot to the pin just snapped (it was basically hanging on a thread)
+        - <p align="left">
+        <img src="./images/スクリーンショット 2026-11-07 220008.png" width="300" height="300" alt="Keyboard launching system">
+        </p>
+        - <p align="left">
+        <img src="./images/スクリーンショット 2026-11-07 220019.png" width="300" height="300" alt="Keyboard launching system (pin system only)">
+        </p>
+        - <p align="left">
+        <img src="./images/スクリーンショット 2026-11-07 220227.png" width="300" height="300" alt="supposedly finished interior (circuits)">
+        </p>
+        - Off camera wood gluing at the workshop ('cause I barely have any at home)
+            - Picture of the final product with all of the printed parts will arrive "shortly"
+    
 
 
 #### arivvid27:
 > However long he spent making the original simplified prototype for the conversion/calculation functions
+- Was unfortunately scrapped due to insufficient (RAM) memory rationing...
