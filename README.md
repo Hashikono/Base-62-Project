@@ -137,6 +137,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
     </p>
 
 # Parts list:
+> Note: All external (3D Printed) components were measured & exported in centimeters
 - I2C LCDs (x2)
 - Half-sized Breadboards (x2)
 - Arduino UNO R3 [preferably R4] (x1)
@@ -149,6 +150,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
     - The link is NOT AFFILIATED ```-_-```
 - <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/3D%20prints%20-%20STL" target="_blank">3D printed parts</a>
 - <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files" target="_blank">Laser cut frame</a>
+
 
 # Model credits:
 > Thank you to these wonderful people for open-sourcing standardized part models, some of which were annoyingly difficult to find...
