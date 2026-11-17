@@ -132,11 +132,6 @@ Always wanted to make some sort of computer with the arduino and found that no o
 </p>
 <a href="https://github.com/Hashikono/Base-62-Project/blob/main/Fusion%20Model/Full%20model/note.txt" target="_blank">Ooh, what could be here...</a>
 
-### How to build
-> If you want a more concentrated guide on how to assemble the build
->> There are some extra stuff that you might want to know about here...
-<a href="https://github.com/Hashikono/Base-62-Project/blob/main/BUILD.md" target="_blank">Document</a>
-
 ### Notes Pt.2:
 > I suggest looking at the 3D model to look at the placement of parts
 > you will most likely need to wood-glue the frame together (just don't wood glue the lid of the keyboardEnclosure module)
@@ -145,6 +140,11 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <p align="left">
     <img src="./images/スクリーンショット 2026-10-21 231604.png" width="300" height="300" alt="Circled part of what you DON'T want to glue">
     </p>
+
+# How to build (in depth)
+> If you want a more concentrated guide on how to assemble the build
+>> There are some extra stuff that you might want to know about here...
+<a href="https://github.com/Hashikono/Base-62-Project/blob/main/BUILD.md" target="_blank">Document</a>
 
 # Parts list:
 > Note: All external (3D Printed) components were measured & exported in centimeters
