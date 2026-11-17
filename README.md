@@ -132,6 +132,10 @@ Always wanted to make some sort of computer with the arduino and found that no o
 </p>
 <a href="https://github.com/Hashikono/Base-62-Project/blob/main/Fusion%20Model/Full%20model/note.txt" target="_blank">Ooh, what could be here...</a>
 
+### How to build
+> If you want a more concentrated guide on how to assemble the build
+>> There are some extra stuff that you might want to know about here...
+<a href="https://github.com/Hashikono/Base-62-Project/blob/main/BUILD.md" target="_blank">Document</a>
 
 ### Notes Pt.2:
 > I suggest looking at the 3D model to look at the placement of parts
