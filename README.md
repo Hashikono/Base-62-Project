@@ -91,34 +91,39 @@ Always wanted to make some sort of computer with the arduino and found that no o
 
 ### Final CAD model
 - Rendering is killing my computer...
-    - <p align="left">
-        <img src="./images/Base 62 Parametric Model.png" width="300" height="300" alt="Base-62 rendered model">
-        </p>
+    <p align="left">
+    <img src="./images/Base 62 Parametric Model.png" width="300" height="300" alt="Base-62 rendered model">
+    </p>
 - Interior circuit
-    - <p align="left">
-        <img src="./images/inner system.png" width="300" height="300" alt="Arduino components (without enclosure)">
-        </p>
+    <p align="left">
+    <img src="./images/inner system.png" width="300" height="300" alt="Arduino components (without enclosure)">
+    </p>
 
 ### IRL build
 -  Circuit
-    - <p align="left">
-        <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="300" height="300" alt="In real life circuit demonstration">
-        </p>
+    <p align="left">
+    <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="300" height="300" alt="In real life circuit demonstration">
+    </p>
         
 -  Top "screen" portion
-    - <p align="left">
-        <img src="./images/pending.png" width="300" height="300" alt="[pending]">
-        </p>
+    <p align="left">
+    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+    </p>
 
 - Bottom "Keyboard" portion
-    - <p align="left">
-        <img src="./images/pending.png" width="300" height="300" alt="[pending]">
-        </p>
+    <p align="left">
+    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+    </p>
 
 -  Full Build
-    - <p align="left">
-        <img src="./images/pending.png" width="300" height="300" alt="[pending]">
-        </p>
+    <p align="left">
+    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+    </p>
+
+- Weee
+    <p align="left">
+    <img src="./images/pending.png" width="300" height="300" alt="360 degree view of the build - GIF">
+    </p>
 
 
 ### Exploded view
@@ -132,6 +137,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 > I suggest looking at the 3D model to look at the placement of parts
 > you will most likely need to wood-glue the frame together (just don't wood glue the lid of the keyboardEnclosure module)
 >> You can glue everything attached to it, just it's recommended not to glue the lid (or your arduino will never come out...)
+>> Look at JOURNAL.md for more detailed interior images of assembly
 <p align="left">
     <img src="./images/スクリーンショット 2026-10-21 231604.png" width="300" height="300" alt="Circled part of what you DON'T want to glue">
     </p>
