@@ -301,7 +301,62 @@
         </p>
         - Off camera wood gluing at the workshop ('cause I barely have any at home)
             - Picture of the final product with all of the printed parts will arrive "shortly"
-    
+27. IRL
+    - technically hours 33-34?
+    - So basically during transportation to the workshop I completely forgot to wood glue the build...
+        - Long story whort when I came home it looked like this:
+        <p align="left">
+        <img src="./images/スクリーンショット 2026-11-07 220008.png" width="300" height="300" alt="Keyboard launching system">
+        </p>
+    - For the sake of laziness and a need for some sort of adhesive that dries fast so hot glue it is!
+    - Genuinely spent almost half of this time trying to find out/re-contemplating how I managed to so badly screw up the measurement of the main keyboard mechanism
+        - At least I pieced together the actual component, genuinely felt like slicing the wall even morejust to reposition the motor
+        - Gave up after a bit 'cause I was WAYY too tired to continue dealing with this
+        <p align="left">
+        <img src="./images/スクリーンショット 2026-11-07 220008.png" width="300" height="300" alt="Keyboard launching system">
+        </p>
+
+28. IRL
+    - technically hour 35
+    - Yeah I finally got the motivation to come back and try to fix the broken motor
+        - After almost a week ```-_-```
+    - Ok so I forgot to lapse this time which was unfortunate due to the absurdity I went about fixing this motor
+        - To start, the drill (the one that drills holes) and its drill bits (mainly for wood but wood and plastic are basically the same rightt) went missing...I genuinely couldn't find it
+        - Instead I found another drill (the one that only uses bits to screw holes)
+        - I also found a bunch of construction screws lying around of varying sizes so me and my smart 6:00pm mind though
+            - What if I drilled the screws in and out in varying sizes to expand the hole...
+            - Literally started trying to drill them slowly using my hand as the vice to the torque
+            - I really don't know what I was thinking looking back
+        - The drilling was done on the servo motor horn's second hole after a very rough guess as the how close I would need to move the main breadboard/mechanism's pin to make the actual keyboard ejector work
+            - turns out the entire covering for this horn was useless 'cause it moved the pin too far out causing it to quite literally explode the box or break off whenever it tried to eject the breadboard/keyboard
+        - The keyboard ejector transitioned into a keyboard locker and somewhat works as an ejector?
+            - maybe I'll make the opposite side's bracket in order to get the keyboard to actually pop out evenly when I get back to this project later
+        - Why is it this project always gives me such a messy workspace, like literally this
+        <p align="left">
+        <img src="images\bruh.jpg" width="300" height="300" alt="messy workspace aftermath">
+        </p>
+        - The measurements of the holes are as follows (if someone wants to model this):
+        <p align="left">
+        <img src="images\IMG_20261116_185517776_HDR~2.jpg" width="300" height="300" alt="Servo motor horn measurement general width">
+        </p>
+        <p align="left">
+        <img src="images\IMG_20261116_185553493_HDR~2.jpg" width="300" height="300" alt="Servo motor horn measurement hole width">
+        </p>
+        <p align="left">
+        <img src="images\IMG_20261116_185634792_HDR~2.jpg" width="300" height="300" alt="Servo motor horn measurement hole placement distance">
+        </p>
+        - Video demonstrations of the actual keyboard ejection/locking mechanism
+        
+        <video width="300" height="300" controls><source src="images\locking demonstration.mp4" type="video/mp4"></video>
+        - Video demonstrations of the interior mechanisms
+        
+        <video width="300" height = "300" controls><source src="images\locking interior.mp4" type="video/mp4"></video>
+
+29. Finalizing the markdown files
+    - technically hour 35.5 or 36 (depending on what hackatime says honestly at the end of this)
+    - Yeah basically I just condensed (or chucked) everything useful for replicating this project into BUILD.md
+    - Pictures are SOO annoying to add on markdown files, there should be a Hack Club proprietary Markdown file editor that looks like Google Docs...
+    - Finally done with this project SMH ```:l```
 
 
 #### arivvid27:
