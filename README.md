@@ -122,7 +122,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 
 - Weee
     <p align="left">
-    <img src="./images/pending.png" width="300" height="300" alt="360 degree view of the build - GIF">
+    <img src="./images/VID_20261116_182436337.gif" width="300" height="300" alt="360 degree view of the build - GIF">
     </p>
 
 
