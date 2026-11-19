@@ -366,6 +366,7 @@
     - Yeah basically I just condensed (or chucked) everything useful for replicating this project into BUILD.md
     - Pictures are SOO annoying to add on markdown files, there should be a Hack Club proprietary Markdown file editor that looks like Google Docs...
     - Fell asleep while writing this oops
+    - Bruh hackatime was tweaking out. Windows is killing me with how many actually useful processes it's just disabling...
     - Finally done with this project SMH ```:l```
 
 
