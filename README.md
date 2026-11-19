@@ -105,19 +105,29 @@ Always wanted to make some sort of computer with the arduino and found that no o
     <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="300" height="300" alt="In real life circuit demonstration">
     </p>
         
--  Top "screen" portion
+-  Front view
     <p align="left">
-    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+    <img src="images\IMG_20261116_181931559_HDR.jpg" width="300" height="300" alt="Somewhat a front view of the project">
     </p>
 
-- Bottom "Keyboard" portion
+- Side view
     <p align="left">
-    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+    <img src="images\IMG_20261116_181937933_HDR.jpg" width="300" height="300" alt="Somewhat a side view (button side)">
     </p>
 
--  Full Build
+- Top interior view
     <p align="left">
-    <img src="./images/pending.png" width="300" height="300" alt="[pending]">
+    <img src="images\IMG_20261116_181944027_HDR.jpg" width="300" height="300" alt="Inside view of the stuff from top">
+    </p>
+
+- General interior view
+    <p align="left">
+    <img src=images\IMG_20261116_182015321_HDR.jpg" width="300" height="300" alt="Inside view of the stuff from front">
+    </p>
+
+-  Coding!
+    <p align="left">
+    <img src="images\IMG_20261116_180416869_HDR.jpg" width="300" height="300" alt="Enclosure opened into 2 parts with components in view and plugged in with code loading into it">
     </p>
 
 - Weee
