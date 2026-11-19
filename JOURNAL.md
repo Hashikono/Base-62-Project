@@ -16,11 +16,13 @@
     <img src="./images/tinkercad.png" width="300" height="300" alt="Rough Draft - Home view">
     </p>
 2. Fusion
+    - (spent 1 hour)
     - Made a quick mock model
     - Designed it after a retro computer
     - Might end up making this parametric to fit a laser cutter
     - Small servo motor mechanism to shoot out the keyboard (though the mechanism might be faulty???)
 3. Fusion / VS Code
+    - (spent 1 hour mixed)
     - Finished the mock model of the calculator/computer to show to a friend (literally sped ran making the model)
     - Debating between using splines and parametric curves for the top
         - Splines are annoying to deal with in laser cutting so I'm good
@@ -44,6 +46,7 @@
     </p>
 
 4. Fusion
+    - (spent 1 hour)
     - Began designing the base and general layout of the computer (on the cleaned parametric version)
     - Was trying to import stuff from Grab CAD etc.
     - Created the initial walls for the platform
@@ -52,6 +55,7 @@
     <img src="./images/スクリーンショット 2026-09-20 1.png" width="300" height="300" alt="Cleaned - Initial placement">
     </p>
 5. Fusion
+    - (spent 1 hour)
     - Imported a servo motor to use for the keyboard dispenser (it moves 180 degrees which is perfect)
     - Created the servo horn brace (connects to the breadboard keyboard)
     <p align="left">
@@ -134,6 +138,7 @@
     <img src="./images/IMG_20261014_134852695_HDR_preview.jpeg" width="300" height="300" alt="In real life circuit demonstration">
     </p>
 19. Fusion
+    - (spent 1 hour)
     - Finally got a motive to come back to this after taking some rest from coding...
     - Finalized the peg-movement thing that attaches to the servo motor
     - Used a single-horned ending for the servo motor to save on space
@@ -150,6 +155,7 @@
     <img src="./images/スクリーンショット 2026-10-20 2.png" width="300" height="300" alt="Motor keyboard system full">
     </p>
 20. Fusion
+    - (spent 1 hour)
     - Finished the keyboard container of the box (final top frame has an area for the cables to pass through)
     <p align="left">
     <img src="./images/スクリーンショット 2026-10-20 3.png" width="300" height="300" alt="Keyboard container top view">
@@ -161,6 +167,7 @@
     - Finalized the base of the screen portion of the model
     - Corrected a couple inconsistent (set) measurements along the way
 21. Fusion
+    - (spent 1 hour)
     - Added holes to the side panels of the keyboard enclosure to allow for the servo motor cable to pass through
     - Added the LCD placement and carving into the LCD panel
     <p align="left">
@@ -172,6 +179,7 @@
     <img src="./images/スクリーンショット 2026-10-20 6.png" width="300" height="300" alt="Screen enclosure lid">
     </p>
 22. Fusion
+    - (spent 1 hour)
     - Looked for some buttons and potentiometers (the arduino specifci potentiometers took WAYY too long to find)
     - Placed the buttons in their positions on the breadboard
     <p align="left">
@@ -191,6 +199,7 @@
     <img src="./images/スクリーンショット 2026-10-20 10.png" width="300" height="300" alt="Custom shorted potentioemeter knob">
     </p>
 23. Fusion
+    - (spent about 1 hour) 
     - Added tolerance to the frames for easy attachments
         - I do NOT want to sand 50+ attachement locations due to poor wood quality
         <p align="left">
@@ -214,6 +223,7 @@
     - Fixing broken links and weird markdown rendering in Github
     - Fixing apparently all the alt texts and weird markdown stuff that was happening with lists in the JOURNAL
 25. Fusion
+    - (spent 0.5 hours)
     - I think I only spend like half an hour on this but whatever (I also started lapse late 'cause I was locked in)
     - Tried to revamp the exploded view as the old one kinda seemed clunky...
     - This new one shows the parts a lot more elegantly (can be used as visual instructions as assembly drawings crash my computer)
@@ -232,7 +242,7 @@
         </p>
         - yayy
 25. IRL
-    - technically this is hour 29??? ...
+    - technically this is hour 29 (spent 1 hour)
     - Fixed the sketches for the front screen and left keyboard panels
         - The tolerance wasn't enough apparently for the LCDs ```-_-```
         - Left panel nearly broke my servo motor's cable 'cause of the force I had to use to squeeze it through
@@ -264,7 +274,7 @@
     - Video Demo <a href="https://drive.google.com/file/d/1PXX1xwDs2nfNQW8c9PEKmnLDRVlhruzG/view?usp=sharing" target="_blank">here</a>
 
 26. Fusion | VS Code (long journal)
-    - technically hours 30, 31, and 32?
+    - technically hours 30, 31, and 32 (spent 3 hours mixed)
         - This took awhile due to constant remeasurements
         - I love my starrett digital caliper, dial calipers make me go insane
     - Fixed the laser cut sketches to match the original design more
@@ -302,22 +312,26 @@
         - Off camera wood gluing at the workshop ('cause I barely have any at home)
             - Picture of the final product with all of the printed parts will arrive "shortly"
 27. IRL
-    - technically hours 33-34?
+    - technically hours 33-34 (spent 2 hours)
     - So basically during transportation to the workshop I completely forgot to wood glue the build...
         - Long story whort when I came home it looked like this:
         <p align="left">
-        <img src="./images/スクリーンショット 2026-11-07 220008.png" width="300" height="300" alt="Keyboard launching system">
+        <img src="images\IMG_20261112_182227263_HDR_preview.jpeg" width="300" height="300" alt="project in disaster and squisheed">
         </p>
-    - For the sake of laziness and a need for some sort of adhesive that dries fast so hot glue it is!
+    - For the sake of laziness and a need for some sort of adhesive that dries fast...hot glue it is!
+        - Midway apparently I made the hot glue too thin and it caused a mild jam where I had to heat up a portion of teh surface to try to apply the left keyboard enclosure panel
     - Genuinely spent almost half of this time trying to find out/re-contemplating how I managed to so badly screw up the measurement of the main keyboard mechanism
         - At least I pieced together the actual component, genuinely felt like slicing the wall even morejust to reposition the motor
         - Gave up after a bit 'cause I was WAYY too tired to continue dealing with this
         <p align="left">
-        <img src="./images/スクリーンショット 2026-11-07 220008.png" width="300" height="300" alt="Keyboard launching system">
+        <img src="images\IMG_20261112_170435160_HDR_preview.jpeg" width="300" height="300" alt="Keyboard mechanism attached">
+        </p>
+        <p align="left">
+        <img src="images\IMG_20261112_165101456_HDR_preview.jpeg" width="300" height="300" alt="Keyboard mechanism solo">
         </p>
 
 28. IRL
-    - technically hour 35
+    - technically hour 35 (spent 1 hour)
     - Yeah I finally got the motivation to come back and try to fix the broken motor
         - After almost a week ```-_-```
     - Ok so I forgot to lapse this time which was unfortunate due to the absurdity I went about fixing this motor
@@ -360,13 +374,19 @@
         - Video demonstrations of the interior mechanisms
         
         <video width="300" height = "300" controls><source src="images\locking interior.mp4" type="video/mp4"></video>
+        - One random note about the positioning of the servo horn, it should be placed parallel to the surface when it is extended in the keyboard's activated position
+            - Example
+            <p align="left">
+            <img src="images\IMG_20261116_185953055_HDR.jpg" width="300" height="300" alt="Servo motor horn activated with better view">
+            </p>
 
-29. Finalizing the markdown files
-    - technically hour 36 (depending on what hackatime says honestly at the end of this)
+29. VS Code (Finalizing the markdown files)
+    - technically hour 36 and 37 (depending on what hackatime says honestly at the end of this)
     - Yeah basically I just condensed (or chucked) everything useful for replicating this project into BUILD.md
     - Pictures are SOO annoying to add on markdown files, there should be a Hack Club proprietary Markdown file editor that looks like Google Docs...
     - Fell asleep while writing this oops
     - Bruh hackatime was tweaking out. Windows is killing me with how many actually useful processes it's just disabling...
+    - I feel like I'm just making another readme atp with build, sigh
     - Finally done with this project SMH ```:l```
 
 
