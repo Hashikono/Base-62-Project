@@ -1,9 +1,11 @@
 # How to build this project:
 > You can skip 90% of this guide by just studying the exploded view GIF, Tinkercad Ciruit, and/or the latest version of the fusion model located in the "Fusion Model" folder
 >> The other 10% are in the "Absurd solution" section below
->> Also note that you need to change the memory address of the 
+>> Also note that you need to change the memory address of one of the I2C LCDs by soldering the FIRST I2C pad on the LCD (see bottom link for a guide)
+<a href="https://www.youtube.com/watch?v=-eqirn-2yKA" target="_blank">link to youtube video</a>
 
 - Exploded View
+    - NOTE, the soldered I2C LCD should be the first one on the bottom, the LCD that uis not soldered should be on the top
     <p align="left">
     <img src="./images/model.gif" width="300" height="300" alt="Exploded GIF of the model">
     </p>
@@ -55,9 +57,10 @@
 > It is in my opinion the easiest way of implementing the keyboard locking mechanism as 3D printing Servo Horns with a 0.4mm nozzle apparently does not compare to a regular servo horn drilled (trust me I tried)
 >> You will NOT need the servo motor horn clasp thing anymore...
 
-- Servo motor horn clasp thing
-//here
-
+- Servo motor horn clasp thing (on my hand)
+<p align="left">
+    <img src="images\bruh.jpg" width="300" height="300" alt="Servo motor horn clasp thing and messy workspace aftermath">
+</p>
 - Start by drilling the servo horn...
     - Basically, take a generic servo horn you get from an arduino kit and drill the 2nd hole after the big hole
 - The measurements of the holes are as follows (if someone wants to model this):
@@ -75,14 +78,14 @@
         </p>
 
 ### Positioning notes
-- First connect the mechanism to the breadboard
+1. First connect the mechanism to the breadboard (utilize a small portion of the breadboard's sticker to stick it on)
+    <p align="left">
+    <img src="images\IMG_20261116_185928461_HDR.jpg" width="300" height="300" alt="Breadboard sticking to the mechanism">
+    </p>
 
-
-
-
-- Load the program into the arduino and press the side button to turn the system "on" it should be 
-- The mechanism should be placed parallel to the surface when it is extended in the keyboard's activated position
-
+2. Load the program into the arduino and press the side button to turn the system "on"
+3. The motor should realign itself (wait until you hear it)
+4. The mechanism should be placed parallel to the surface when it is extended in the keyboard's activated position (trust the image I said to trust more...)
 
 - Servo motor horn position (dormant)
     <p align="left">
@@ -94,12 +97,10 @@
     <img src="images\IMG_20261116_181137076_HDR.jpg" width="300" height="300" alt="Servo motor horn activated">
     </p>
 
-- Trust this activated servo motor horn position more than the firat image...
+- Trust this activated servo motor horn position more than the first image...
     <p align="left">
     <img src="images\IMG_20261116_185953055_HDR.jpg" width="300" height="300" alt="Servo motor horn activated with better view">
     </p>
 
-- Breadboard latch module (basically the main mechanism)
-    <p align="left">
-    <img src="images\IMG_20261116_185928461_HDR.jpg" width="300" height="300" alt="Breadboard latch and mechniasmain mechanism">
-    </p>
+5. Place the lid over it carefully (make sure to not allow wires to disconnect)
+6. Yay you're done!
