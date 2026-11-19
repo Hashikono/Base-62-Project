@@ -2,7 +2,7 @@
 > You can skip 90% of this guide by just studying the exploded view GIF, Tinkercad Ciruit, and/or the latest version of the fusion model located in the "Fusion Model" folder
 >> The other 10% are in the "Absurd solution" section below
 >> Also note that you need to change the memory address of one of the I2C LCDs by soldering the FIRST I2C pad on the LCD (see bottom link for a guide)
-<a href="https://www.youtube.com/watch?v=-eqirn-2yKA" target="_blank">link to youtube video</a>
+- <a href="https://www.youtube.com/watch?v=-eqirn-2yKA" target="_blank">link to youtube video</a>
 
 - Exploded View
     - NOTE, the soldered I2C LCD should be the first one on the bottom, the LCD that uis not soldered should be on the top
@@ -32,9 +32,9 @@
     </p>
 
 ### Connecting the circuits
-    - As long as everything gets connected right, it really doesn't matter how it all interconnects
-    - The tinkercad simulation displays it all connected via 3 breadboards, I suggest for the sake of space, follow the second image where the breadboards for the LCD and general components are combined into 2 breadboards
-        - Basically, the keyboard is one one breadboard, and everything is on the other
+- As long as everything gets connected right, it really doesn't matter how it all interconnects
+- The tinkercad simulation displays it all connected via 3 breadboards, I suggest for the sake of space, follow the second image where the breadboards for the LCD and general components are combined into 2 breadboards
+    - Basically, the keyboard is one one breadboard, and everything is on the other
 
 - (first image) Tinkercad simulation
 <p align="left">

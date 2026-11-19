@@ -10,6 +10,11 @@ Always wanted to make some sort of computer with the arduino and found that no o
 - Used more geometry in this roject than at any other point in my life...
 - Added onto my collection of absurd project ideas
 - Needed to find reasons to use my school's workshop before I graduated...
+- I learned:
+    - How to manage memory in very limited systems
+    - The importance of tolerance and how to find creative solutions when you don't have the right 3D printer nozzle for the job
+    - Managing I2C memory addresses
+    - How to manage complexity in mechanical systems (the keyboard activation)
 
 # How to read the manual/operate:
 ```

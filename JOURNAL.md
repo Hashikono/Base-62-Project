@@ -331,7 +331,7 @@
         </p>
 
 28. IRL
-    - technically hour 35 (spent 1 hour)
+    - Technically hour 35 (spent 1 hour)
     - Yeah I finally got the motivation to come back and try to fix the broken motor
         - After almost a week ```-_-```
     - Ok so I forgot to lapse this time which was unfortunate due to the absurdity I went about fixing this motor
@@ -381,7 +381,7 @@
             </p>
 
 29. VS Code (Finalizing the markdown files)
-    - technically hour 36 and 37 (depending on what hackatime says honestly at the end of this)
+    - Technically hours 36 and 37 (depending on what hackatime says honestly at the end of this)
     - Yeah basically I just condensed (or chucked) everything useful for replicating this project into BUILD.md
     - Pictures are SOO annoying to add on markdown files, there should be a Hack Club proprietary Markdown file editor that looks like Google Docs...
     - Fell asleep while writing this oops
