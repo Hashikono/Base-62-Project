@@ -329,6 +329,10 @@
             - I really don't know what I was thinking looking back
         - The drilling was done on the servo motor horn's second hole after a very rough guess as the how close I would need to move the main breadboard/mechanism's pin to make the actual keyboard ejector work
             - turns out the entire covering for this horn was useless 'cause it moved the pin too far out causing it to quite literally explode the box or break off whenever it tried to eject the breadboard/keyboard
+            - The screws in question
+            <p align="left">
+            <img src="images\IMG_20261116_175924523_HDR.jpg" width="300" height="300" alt="bag of screws to drill the hole">
+            </p>
         - The keyboard ejector transitioned into a keyboard locker and somewhat works as an ejector?
             - maybe I'll make the opposite side's bracket in order to get the keyboard to actually pop out evenly when I get back to this project later
         - Why is it this project always gives me such a messy workspace, like literally this
@@ -345,6 +349,11 @@
         <p align="left">
         <img src="images\IMG_20261116_185634792_HDR~2.jpg" width="300" height="300" alt="Servo motor horn measurement hole placement distance">
         </p>
+        - This was so fun to put together...
+        <p align="left">
+        <img src="images\IMG_20261116_174531839_HDR.jpg" width="300" height="300" alt="Image of disattached mechanism from motor">
+        </p>
+
         - Video demonstrations of the actual keyboard ejection/locking mechanism
         
         <video width="300" height="300" controls><source src="images\locking demonstration.mp4" type="video/mp4"></video>
@@ -353,9 +362,10 @@
         <video width="300" height = "300" controls><source src="images\locking interior.mp4" type="video/mp4"></video>
 
 29. Finalizing the markdown files
-    - technically hour 35.5 or 36 (depending on what hackatime says honestly at the end of this)
+    - technically hour 36 (depending on what hackatime says honestly at the end of this)
     - Yeah basically I just condensed (or chucked) everything useful for replicating this project into BUILD.md
     - Pictures are SOO annoying to add on markdown files, there should be a Hack Club proprietary Markdown file editor that looks like Google Docs...
+    - Fell asleep while writing this oops
     - Finally done with this project SMH ```:l```
 
 
