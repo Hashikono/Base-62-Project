@@ -388,6 +388,7 @@
     - Bruh hackatime was tweaking out. Windows is killing me with how many actually useful processes it's just disabling...
     - I feel like I'm just making another readme atp with build, sigh
     - Finally done with this project SMH ```:l```
+    - 11/20: Used the converting software to convert all the 3MF files into STEP... https://convert3d.org/3mf-to-stp/app
 
 
 #### arivvid27:
