@@ -149,7 +149,15 @@ Always wanted to make some sort of computer with the arduino and found that no o
     - <a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/" target="_blank">Something like this</a>
     - The link is NOT AFFILIATED ```-_-```
 - <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model" target="_blank">3D printed parts</a>
+    - arduino bracer (x1)
+    - breadboard latch pin (x1)
+    - breadboard latch ring (x1)
+    - breadboard latch (x1)
+    - potentiometer knob (x3)
+    - servo motor bracer (x1)
+    - servo motor lever (x1)
 - <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files" target="_blank">Laser cut frame</a>
+    - All of them...
 
 
 # Model credits:
