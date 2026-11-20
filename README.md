@@ -138,26 +138,26 @@ Always wanted to make some sort of computer with the arduino and found that no o
 
 # Parts list (BOM):
 > Note: All external (3D Printed) components were measured & exported in centimeters
-- I2C LCDs (x2)
-- Half-sized Breadboards (x2)
-- Arduino UNO R3 [preferably R4] (x1)
-- CA9 Potentiometers [the Arduino type] (x3)
-- Standard push buttons (x4)
-- Generic 180 degree Servo motor (x1)
-- A piezo (x1)
-- A whole lot of Male-Male and Male-Female Jumper wires
-    - <a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/" target="_blank">Something like this</a>
-    - The link is NOT AFFILIATED ```-_-```
-- <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model" target="_blank">3D printed parts</a>
-    - arduino bracer (x1)
-    - breadboard latch pin (x1)
-    - breadboard latch ring (x1)
-    - breadboard latch (x1)
-    - potentiometer knob (x3)
-    - servo motor bracer (x1)
-    - servo motor lever (x1)
-- <a href="https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files" target="_blank">Laser cut frame</a>
-    - All of them...
+
+| Category | Item | Quantity | Notes |
+| :--- | :--- | :---: | :--- |
+| **Electronics** | I2C LCDs | 2 | |
+| | Half-sized Breadboards | 2 | |
+| | Arduino UNO R3 | 1 | Preferably R4 |
+| | CA9 Potentiometers | 3 | The Arduino type |
+| | Standard push buttons | 4 | |
+| | Generic 180 degree Servo motor | 1 | |
+| | Piezo | 1 | |
+| | Jumper wires | Lots | Male-Male and Male-Female. [Example link](https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/) (Not affiliated) |
+| **3D Printed Parts** | [Fusion Model Files](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model) | | |
+| | Arduino bracer | 1 | |
+| | Breadboard latch pin | 1 | |
+| | Breadboard latch ring | 1 | |
+| | Breadboard latch | 1 | |
+| | Potentiometer knob | 3 | |
+| | Servo motor bracer | 1 | |
+| | Servo motor lever | 1 | |
+| **Laser Cut** | [Frame (DXF files)](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files) | All | |
 
 
 # Model credits:
