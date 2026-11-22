@@ -137,27 +137,35 @@ Always wanted to make some sort of computer with the arduino and found that no o
 <a href="https://github.com/Hashikono/Base-62-Project/blob/main/BUILD.md" target="_blank">Document</a>
 
 # Parts list (BOM):
-> Note: All external (3D Printed) components were measured & exported in centimeters
+> Notes: 
+> - All external (3D Printed) components were measured & exported in centimeters
+> - Many of these parts can be found in your generic arduino kit
+> - The 3D printing cost is based on Hack Club's print legion rates ($0.05 / gram)
+> - The Laser cut parts are by default 0.125 inches thick, so you might need to edit the parameter in fusion if you plan to use something different
+> - Laser cut price is referenced from a local vender using the cheapest plywood (~$10) and is subject to vary
+> - You can cut all parts using a sheet that's 18" x 24" (~$8)
+> - I personally found/made all of my parts through my school's workshop so this was apparently free for me (aside from the wires which I brought myself)
 
-| Category | Item | Quantity | Notes |
-| :--- | :--- | :---: | :--- |
-| **Electronics** | I2C LCDs | 2 | |
-| | Half-sized Breadboards | 2 | |
-| | Arduino UNO R3 | 1 | Preferably R4 |
-| | CA9 Potentiometers | 3 | The Arduino type |
-| | Standard push buttons | 4 | |
-| | Generic 180 degree Servo motor | 1 | |
-| | Piezo | 1 | |
-| | Jumper wires | Lots | Male-Male and Male-Female. [Example link](https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/) (Not affiliated) |
-| **3D Printed Parts** | [Fusion Model Files](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model) | | |
-| | Arduino bracer | 1 | |
-| | Breadboard latch pin | 1 | |
-| | Breadboard latch ring | 1 | |
-| | Breadboard latch | 1 | |
-| | Potentiometer knob | 3 | |
-| | Servo motor bracer | 1 | |
-| | Servo motor lever | 1 | |
-| **Laser Cut** | [Frame (DXF files)](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files) | All | |
+| Category | Item | Quantity | Notes | Price |
+| :--- | :--- | :---: | :--- | :--- |
+| **Electronics** | I2C LCDs | 2 | | $4.56 |
+| | Half-sized Breadboards | 2 | | $11.26 |
+| | Arduino UNO R3 | 1 | Preferably R4 | $14.00 |
+| | CA9 Potentiometers | 3 | The Arduino type | $0.45 |
+| | Standard push buttons | 4 | | $1.78 |
+| | Generic 180 degree Servo motor | 1 | | $4.66 |
+| | Piezo | 1 | | $1.00 |
+| | Jumper wires | Lots | Male-Male and Male-Female. [Example link](https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/) (Not affiliated) | $5.93 |
+| **3D Printed Parts** | [Fusion Model Files](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model) | | | |
+| | Arduino bracer | 1 | | $0.22 |
+| | Breadboard latch pin | 1 | | $0.01 |
+| | Breadboard latch ring | 1 | | $0.01 |
+| | Breadboard latch | 1 | | $0.07 |
+| | Potentiometer knob | 3 | | $0.08 |
+| | Servo motor bracer | 1 | | $0.09 |
+| | Servo motor lever | 1 | | $0.03 |
+| **Laser Cut** | [Frame (DXF files)](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files) | All |  $15.00 ||
+| **Total** | | | | $59.15 |
 
 
 # Model credits:
