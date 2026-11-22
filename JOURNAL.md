@@ -389,6 +389,7 @@
     - I feel like I'm just making another readme atp with build, sigh
     - Finally done with this project SMH ```:l```
     - 11/20: Used the converting software to convert all the 3MF files into STEP... https://convert3d.org/3mf-to-stp/app
+    - 11/21: Apparently forgot to add prices so I spent about 20 or so minutes doing so...
 
 
 #### arivvid27:
