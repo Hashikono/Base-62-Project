@@ -164,7 +164,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 | | Potentiometer knob | 3 | | $0.08 |
 | | Servo motor bracer | 1 | | $0.09 |
 | | Servo motor lever | 1 | | $0.03 |
-| **Laser Cut** | [Frame (DXF files)](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files) | All |  $15.00 ||
+| **Laser Cut** | [Frame (DXF files)](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files) | All | | $15.00|
 | **Total** | | | | $59.15 |
 
 
