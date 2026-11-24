@@ -145,27 +145,29 @@ Always wanted to make some sort of computer with the arduino and found that no o
 > - Laser cut price is referenced from a local vender using the cheapest plywood (~$10) and is subject to vary
 > - You can cut all parts using a sheet that's 18" x 24" (~$8)
 > - I personally found/made all of my parts through my school's workshop so this was apparently free for me (aside from the wires which I brought myself)
+> - ASYCF = Any Service You Can Find
+> - The price may be absurd, but this is assuming you don't already have any components and only want to get the components themselves (I would suggest just getting an official arduino kit at this point...)
 
-| Category | Item | Quantity | Notes | Price |
-| :--- | :--- | :---: | :--- | :--- |
-| **Electronics** | I2C LCDs | 2 | | $4.56 |
-| | Half-sized Breadboards | 2 | | $11.26 |
-| | Arduino UNO R3 | 1 | Preferably R4 | $14.00 |
-| | CA9 Potentiometers | 3 | The Arduino type | $0.45 |
-| | Standard push buttons | 4 | | $1.78 |
-| | Generic 180 degree Servo motor | 1 | | $4.66 |
-| | Piezo | 1 | | $1.00 |
-| | Jumper wires | Lots | Male-Male and Male-Female. [Example link](https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/) (Not affiliated) | $5.93 |
-| **3D Printed Parts** | [Fusion Model Files](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model) | | | |
-| | Arduino bracer | 1 | | $0.22 |
-| | Breadboard latch pin | 1 | | $0.01 |
-| | Breadboard latch ring | 1 | | $0.01 |
-| | Breadboard latch | 1 | | $0.07 |
-| | Potentiometer knob | 3 | | $0.08 |
-| | Servo motor bracer | 1 | | $0.09 |
-| | Servo motor lever | 1 | | $0.03 |
-| **Laser Cut** | [Frame (DXF files)](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files) | All | | $15.00|
-| **Total** | | | | $59.15 |
+| Category | Item | Quantity | Notes | Price | Link |
+| :--- | :--- | :---: | :--- | :--- | :--- |
+| **Electronics** | I2C LCDs | 2 | | $10.00 | https://www.ebay.com/itm/397791596108 |
+| | Half-sized Breadboards | 2 | | $12.50 | https://www.microcenter.com/product/504168/adafruit-industries-perma-proto-half-sized-breadboard-pcb-3-pack?showfullsite=true&storeID=175 |
+| | Arduino UNO R3 | 1 | Preferably R4 | $14.00 | https://store-usa.arduino.cc/products/uno-r4-minima |
+| | CA9 Potentiometers | 3 | The Arduino type (single module unavailable) | $13.22 | https://www.ebay.com/itm/186381986750|
+| | Standard push buttons | 4 | | $3.00 | https://www.robotshop.com/products/sfe-12mm-push-button-switch? |
+| | Generic 180 degree Servo motor | 1 | | $4.66 | https://www.ebay.com/itm/335150218021 |
+| | Piezo | 1 | Single module unavailable | $5.75 | https://www.ebay.com/itm/304074254280 |
+| | Jumper wires | 20-30 | Male-Male and Male-Female. [Example link](https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/) (Not affiliated) | $5.93 | https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ |
+| **3D Printed Parts** | [Fusion Model Files](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model) | | Use "recommended" | | |
+| | Arduino bracer | 1 | | $0.22 | ASYCF |
+| | Breadboard latch pin | 1 | | $0.01 | ASYCF |
+| | Breadboard latch ring | 1 | | $0.01 | ASYCF |
+| | Breadboard latch | 1 | | $0.07 | ASYCF |
+| | Potentiometer knob | 3 | | $0.08 | ASYCF |
+| | Servo motor bracer | 1 | | $0.09 | ASYCF |
+| | Servo motor lever | 1 | | $0.03 | ASYCF |
+| **Laser Cut** | [Frame (DXF files)](https://github.com/Hashikono/Base-62-Project/tree/main/Fusion%20Model/Frames%20-%20DXF%20files) | All | Use "recommended" | $15.00| ASYCF |
+| **Total** | | | | $84.57 | |
 
 
 # Model credits:
