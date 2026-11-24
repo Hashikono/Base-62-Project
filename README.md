@@ -154,7 +154,7 @@ Always wanted to make some sort of computer with the arduino and found that no o
 | | Half-sized Breadboards | 2 | | $12.50 | https://www.microcenter.com/product/504168/adafruit-industries-perma-proto-half-sized-breadboard-pcb-3-pack?showfullsite=true&storeID=175 |
 | | Arduino UNO R3 | 1 | Preferably R4 | $14.00 | https://store-usa.arduino.cc/products/uno-r4-minima |
 | | CA9 Potentiometers | 3 | The Arduino type (single module unavailable) | $13.22 | https://www.ebay.com/itm/186381986750|
-| | Standard push buttons | 4 | | $3.00 | https://www.robotshop.com/products/sfe-12mm-push-button-switch? |
+| | Standard push buttons | 4 | | $3.00 | https://www.robotshop.com/products/sfe-12mm-push-button-switch |
 | | Generic 180 degree Servo motor | 1 | | $4.66 | https://www.ebay.com/itm/335150218021 |
 | | Piezo | 1 | Single module unavailable | $5.75 | https://www.ebay.com/itm/304074254280 |
 | | Jumper wires | 20-30 | Male-Male and Male-Female. [Example link](https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/) (Not affiliated) | $5.93 | https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ |
